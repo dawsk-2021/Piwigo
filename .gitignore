@@ -17,3 +17,6 @@
 # Eclipse
 .settings
 .project
+
+# vscode
+.vscode
