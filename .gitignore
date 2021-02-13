@@ -7,6 +7,10 @@
 !/galleries/index.php
 /local/*
 !/local/**/index.php
+language
+#!/language/index.php
+#!/language/de_DE
+#!/language/en_UK
 
 # IntelliJ
 .idea
