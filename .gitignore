@@ -7,10 +7,19 @@
 !/galleries/index.php
 /local/*
 !/local/**/index.php
-language
-#!/language/index.php
-#!/language/de_DE
-#!/language/en_UK
+/language/*
+!/language/index.php
+!/language/de_DE
+!/language/en_UK
+
+/themes/bootstrap_darkroom/language/
+!/themes/bootstrap_darkroom/language/de_DE
+!/themes/bootstrap_darkroom/language/en_UK
+/themes/modus/language/
+!/themes/modus/language/de_DE
+!/themes/modus/language/en_UK
+
+
 
 # IntelliJ
 .idea
