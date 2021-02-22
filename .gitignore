@@ -2,6 +2,8 @@
 /_data
 /plugins/*
 !/plugins/index.php
+!/plugins/daw_hidden
+!/plugins/PersonalPlugin
 /upload
 /galleries/*
 !/galleries/index.php
