@@ -40,7 +40,7 @@
 {/foreach}
     </div>
 {else}
-{combine_script id='jquery.awesomeCloud' load='footer' path="themes/bootstrap_darkroom/js/jquery.awesomeCloud.js"}
+{combine_script id='jquery.awesomeCloud' load='footer' path="themes/daw_theme/js/jquery.awesomeCloud.js"}
 {footer_script require='jquery.awesomeCloud'}{strip}
     $(document).ready(function(){
         $("#tagCloudCanvas").awesomeCloud({

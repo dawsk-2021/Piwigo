@@ -1,4 +1,4 @@
-{combine_css path="themes/bootstrap_darkroom/admin/css/admin.css"}
+{combine_css path="themes/daw_theme/admin/css/admin.css"}
 {combine_script id='common' load='footer' path='admin/themes/default/js/common.js'}
 <div class="titrePage">
     <h2>Bootstrap Darkroom {$TABSHEET_TITLE}</h2>
@@ -463,7 +463,7 @@ function getBootswatchThemes() {
            $('option[value=' + $lname + ']').attr('selected', 'selected');
         }
       });
-      preview.html('<img src="themes/bootstrap_darkroom/components/bootswatch/' + select_bootswatch.val() + '/thumbnail.png" width="50%" style="padding: 10px 0;"/>');
+      preview.html('<img src="themes/daw_theme/components/bootswatch/' + select_bootswatch.val() + '/thumbnail.png" width="50%" style="padding: 10px 0;"/>');
       preview.show();
 
     }, "json").fail(function(){
@@ -477,7 +477,7 @@ $(document).ready(function() {
   if ($('select[name=bootstrap_theme]').val() === 'bootswatch') {
     getBootswatchThemes();
   } else {
-    preview.html('<img src="themes/bootstrap_darkroom/admin/img/' + $('select[name=bootstrap_theme]').val() + '.png" style="padding: 10px 0;"/>');
+    preview.html('<img src="themes/daw_theme/admin/img/' + $('select[name=bootstrap_theme]').val() + '.png" style="padding: 10px 0;"/>');
     preview.show();
   }
  
@@ -557,7 +557,7 @@ $('select[name=bootstrap_theme]').change(function() {
       break;
   }
 
-  preview.html('<img src="themes/bootstrap_darkroom/admin/img/' + $('select[name=bootstrap_theme]').val() + '.png" style="padding: 10px 0;"/>');
+  preview.html('<img src="themes/daw_theme/admin/img/' + $('select[name=bootstrap_theme]').val() + '.png" style="padding: 10px 0;"/>');
 
   $('input[name=navbar_main_style]').attr('value', navbar_main_style);
   $('input[name=navbar_main_bg]').attr('value', navbar_main_bg);
@@ -565,7 +565,7 @@ $('select[name=bootstrap_theme]').change(function() {
   $('input[name=navbar_contextual_bg]').attr('value', navbar_contextual_bg);
 });
 $(select_bootswatch).change(function() {
-    preview.html('<img src="themes/bootstrap_darkroom/components/bootswatch/' + select_bootswatch.val() + '/thumbnail.png" width="50%" style="padding: 10px 0;"/>');
+    preview.html('<img src="themes/daw_theme/components/bootswatch/' + select_bootswatch.val() + '/thumbnail.png" width="50%" style="padding: 10px 0;"/>');
 });
 
 $('input[name=photoswipe]').change(function() {

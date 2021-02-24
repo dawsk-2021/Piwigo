@@ -24,8 +24,8 @@
 
     <title>{if $PAGE_TITLE!=l10n('Home') && $PAGE_TITLE!=$GALLERY_TITLE}{$PAGE_TITLE} | {/if}{$GALLERY_TITLE}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{$ROOT_URL}{$themeconf.icon_dir}/favicon.ico">
-    <link rel="icon" sizes="192x192" href="{$ROOT_URL}themes/bootstrap_darkroom/img/logo.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="{$ROOT_URL}themes/bootstrap_darkroom/img/logo.png">
+    <link rel="icon" sizes="192x192" href="{$ROOT_URL}themes/daw_theme/img/logo.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="{$ROOT_URL}themes/daw_theme/img/logo.png">
     <link rel="start" title="{'Home'|@translate}" href="{$U_HOME}" >
     <link rel="search" title="{'Search'|@translate}" href="{$ROOT_URL}search.php">
 {if isset($first.U_IMG)}
@@ -55,26 +55,26 @@
 
 {strip}
 {if $theme_config->bootstrap_theme} {* see https://github.com/tkuther/piwigo-bootstrap-darkroom/issues/104 *}
-    {combine_css path="themes/bootstrap_darkroom/css/{$theme_config->bootstrap_theme}/bootstrap.min.css" order=-20}
+    {combine_css path="themes/daw_theme/css/{$theme_config->bootstrap_theme}/bootstrap.min.css" order=-20}
 {else}
-    {combine_css path="themes/bootstrap_darkroom/css/bootstrap-default/bootstrap.min.css" order=-20}
+    {combine_css path="themes/daw_theme/css/bootstrap-default/bootstrap.min.css" order=-20}
 {/if}
 {if $theme_config->bootstrap_theme == 'bootstrap-darkroom' || $theme_config->bootstrap_theme == 'material-darkroom'}
-    {combine_css path="themes/bootstrap_darkroom/node_modules/typeface-pt-sans/index.css" order=-19}
+    {combine_css path="themes/daw_theme/node_modules/typeface-pt-sans/index.css" order=-19}
 {elseif (0 === strpos($theme_config->bootstrap_theme, 'material')) || $theme_config->bootstrap_theme == 'bootstrap-default'}
-    {combine_css path="themes/bootstrap_darkroom/node_modules/typeface-roboto/index.css" order=-19}
+    {combine_css path="themes/daw_theme/node_modules/typeface-roboto/index.css" order=-19}
 {/if}
-    {combine_css path='themes/bootstrap_darkroom/node_modules/@fortawesome/fontawesome-free/css/all.min.css' order=-14}
-    {combine_css path='themes/bootstrap_darkroom/assets/photography-icons/css/PhotographyIcons.css' order=-13}
-    {combine_css path='themes/bootstrap_darkroom/node_modules/bootstrap-social/bootstrap-social.css' order=-12}
+    {combine_css path='themes/daw_theme/node_modules/@fortawesome/fontawesome-free/css/all.min.css' order=-14}
+    {combine_css path='themes/daw_theme/assets/photography-icons/css/PhotographyIcons.css' order=-13}
+    {combine_css path='themes/daw_theme/node_modules/bootstrap-social/bootstrap-social.css' order=-12}
 {foreach from=$themes item=theme}
 {if $theme.load_css}
     {combine_css path="themes/`$theme.id`/theme.css" order=-10}
 {/if}
 {if !empty($theme.local_head)}{include file=$theme.local_head load_css=$theme.load_css}{/if}
 {/foreach}
-{if file_exists("local/bootstrap_darkroom/custom.css")}
-    {combine_css path="local/bootstrap_darkroom/custom.css" order=10000}
+{if file_exists("local/daw_theme/custom.css")}
+    {combine_css path="local/daw_theme/custom.css" order=10000}
 {/if}
 {get_combined_css}
 {if $BODY_ID == 'theAdditionalPage' || $BODY_ID == 'theHomePage' || $bootstrap_darkroom_core_js_in_header == true }
@@ -82,17 +82,17 @@
 {else}
 {assign var=loc value="footer"} 
 {/if}
-{combine_script id='jquery' path='themes/bootstrap_darkroom/node_modules/jquery/dist/jquery.min.js' load=$loc}
-{combine_script id='jquery-migrate' require='jquery' path='themes/bootstrap_darkroom/node_modules/jquery-migrate/dist/jquery-migrate.min.js' load=$loc}
+{combine_script id='jquery' path='themes/daw_theme/node_modules/jquery/dist/jquery.min.js' load=$loc}
+{combine_script id='jquery-migrate' require='jquery' path='themes/daw_theme/node_modules/jquery-migrate/dist/jquery-migrate.min.js' load=$loc}
 {combine_script id='jquery.ajaxmanager' require='jquery' path='themes/default/js/plugins/jquery.ajaxmanager.js' load='footer'}
 {combine_script id='thumbnails.loader' require='jquery.ajaxmanager' path='themes/default/js/thumbnails.loader.js' load='footer'}
-{combine_script id='popper.js' require='jquery' path='themes/bootstrap_darkroom/node_modules/popper.js/dist/umd/popper.min.js' load=$loc}
+{combine_script id='popper.js' require='jquery' path='themes/daw_theme/node_modules/popper.js/dist/umd/popper.min.js' load=$loc}
 {if preg_match('/^material/', $theme_config->bootstrap_theme)}
-    {combine_script id='bootstrap' require='popper.js' path='themes/bootstrap_darkroom/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js' load=$loc}
+    {combine_script id='bootstrap' require='popper.js' path='themes/daw_theme/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js' load=$loc}
 {else}
-    {combine_script id='bootstrap' require='popper.js' path='themes/bootstrap_darkroom/node_modules/bootstrap/dist/js/bootstrap.min.js' load=$loc}
+    {combine_script id='bootstrap' require='popper.js' path='themes/daw_theme/node_modules/bootstrap/dist/js/bootstrap.min.js' load=$loc}
 {/if}
-{combine_script id=$themeconf.name require='bootstrap' path='themes/bootstrap_darkroom/js/theme.js' load='footer'}
+{combine_script id=$themeconf.name require='bootstrap' path='themes/daw_theme/js/theme.js' load='footer'}
 {/strip}
 {get_combined_scripts load='header'}
 {if not empty($head_elements)}

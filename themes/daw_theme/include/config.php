@@ -181,7 +181,7 @@ class Config {
     }
 
     private function initFiles() {
-        $this->files[self::KEY_CUSTOM_CSS] = PHPWG_ROOT_PATH . PWG_LOCAL_DIR . 'bootstrap_darkroom/custom.css';
+        $this->files[self::KEY_CUSTOM_CSS] = PHPWG_ROOT_PATH . PWG_LOCAL_DIR . 'daw_theme/custom.css';
     }
 
     public function __set($key, $value) {
