@@ -1039,8 +1039,8 @@ function setPrivacyLevel(id, level){
 
 {if !empty($PLUGIN_PICTURE_AFTER)}{$PLUGIN_PICTURE_AFTER}{/if}
  ';
-  if ($user['theme'] == 'bootstrap_darkroom'){
-	  $themeconfig = new \BootstrapDarkroom\Config();
+  if ($user['theme'] == 'daw_theme'){
+	  $themeconfig = new \DawTheme\Config();
 		if($themeconfig->picture_info=='sidebar'){
 			$search = '/(<dl id="standard" class="imageInfoTable">).*({if isset\(\$metadata\)})/is';
 			return preg_replace($search, $replastandard , $content);
@@ -1064,8 +1064,8 @@ function add_InfoT() {
 
     if (!empty($page['image_id'])) {
 
-	  if ($user['theme'] == 'bootstrap_darkroom'){
-	  $themeconfig = new \BootstrapDarkroom\Config();
+	  if ($user['theme'] == 'daw_theme'){
+	  $themeconfig = new \DawTheme\Config();
 		if($themeconfig->picture_info=='cards'){
 			$tagaff = pwg_db_fetch_assoc(pwg_query('SELECT wording FROM '. ADD_PROP_PHOTO_TABLE.' ORDER BY orderprop DESC LIMIT 1'));
 				if($tagaff['wording']=='Tags'){
