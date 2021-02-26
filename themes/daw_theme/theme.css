@@ -548,10 +548,20 @@ i.video-indicator {
   padding-left: 0px !important;
 }
 
+#carousel-container {
+  float: center; 
+  width: auto;
+  padding-right: auto;
+  padding-left: 5%;
+  margin-right: unset;
+  margin-left: unset;
+}
+
 #theImage {
   position: relative;
   overflow-x: hidden;
   text-align: center;
+  left: -5%;
 }
 
 #theImage img {
@@ -589,7 +599,8 @@ i.video-indicator {
 
 @media (min-width: 992px) {
   #theImageInfos .table > tbody > tr > th {
-    text-align: right;
+    text-align: center;
+    left: unset;
   }
 }
 
@@ -706,13 +717,24 @@ i.video-indicator {
   }
 }
 
-#sidebar {
-  position: absolute;
-  right: -250px;
-  text-align: left;
-  z-index: 100;
+@media (max-width: 1479.98px) {
+  #sidebar {
+    position: absolute;
+    right: -250px;
+    text-align: left;
+    z-index: 100;
+  }
 }
 
+@media (min-width: 1480px) {
+  #sidebar {
+    position: absolute;
+    right: 0px;
+    text-align: left;
+    z-index: 100;
+  }
+}
+  
 #sidebar .handle {
   margin-top: 10px;
   float: right;
