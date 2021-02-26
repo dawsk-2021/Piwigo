@@ -4,6 +4,7 @@
 !/plugins/index.php
 !/plugins/daw_hidden
 !/plugins/PersonalPlugin
+!/plugins/manage_properties_photos
 /upload
 /galleries/*
 !/galleries/index.php
