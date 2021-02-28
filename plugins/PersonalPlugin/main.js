@@ -52,10 +52,10 @@ function adjustPluginAdminTools(adminToolsInstalled) {
             elements[0].parentNode.remove();
         }
 
-        var elements = atoHeader.getElementsByClassName("icon-ato-cancel");
-        while (elements.length > 0) {
-            elements[0].parentNode.remove();
-        }
+        // var elements = atoHeader.getElementsByClassName("icon-ato-cancel");
+        // while (elements.length > 0) {
+        //     elements[0].parentNode.remove();
+        // }
     }
 
     var atoContainer = document.getElementById("ato_container");

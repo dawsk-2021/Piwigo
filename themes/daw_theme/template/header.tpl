@@ -181,16 +181,10 @@ function setNavbarOpacity() {
 $(window).scroll(function(){
   setNavbarOpacity();
 });
-$('.navbar-main .navbar-collapse').on('show.bs.collapse', function() {
-  $('.navbar-main').attr('style', 'background-color: rgba(0, 0, 0, 0.9) !important');
-});
 $('.navbar-main .navbar-collapse').on('hidden.bs.collapse', function() {
   $('.navbar-main').attr('style', '');
 });
 {if $theme_config->page_header_both_navs}
-$('.navbar-contextual .navbar-collapse').on('show.bs.collapse', function() {
-  $('.navbar-contextual').attr('style', 'background-color: rgba(0, 0, 0, 0.9) !important');
-});
 $('.navbar-contextual .navbar-collapse').on('hidden.bs.collapse', function() {
   $('.navbar-contextual').attr('style', '');
   setNavbarOpacity();

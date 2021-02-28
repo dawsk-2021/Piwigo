@@ -10360,7 +10360,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .navbar.bg-primary {
-  background-image: linear-gradient(#6d94bf, #446E9B 50%, #3e648d);
+  background-image: linear-gradient(#7b7d80,#757b82 50%,#656d75);
   background-repeat: no-repeat;
   -webkit-filter: none;
   filter: none;

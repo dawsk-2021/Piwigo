@@ -22,16 +22,18 @@
 //Ajout du prefiltre
 add_event_handler('loc_begin_picture', 'add_info_photo_pre', 05);
 
-function add_info_photo_pre() {
-    global $template;
-    $template->set_prefilter('picture', 'add_info_photo_preT');
+function add_info_photo_pre()
+{
+	global $template;
+	$template->set_prefilter('picture', 'add_info_photo_preT');
 }
 
-function add_info_photo_preT($content, &$smarty) {
+function add_info_photo_preT($content, &$smarty)
+{
 
-    global $conf, $user;
+	global $conf, $user;
 
-   $replastandard='<dl id="standard" class="imageInfoTable">{strip}
+	$replastandard = '<dl id="standard" class="imageInfoTable">{strip}
 {foreach from=$add_info_photos item=addinfophotos}
     {if $addinfophotos.AIPID == 1 and isset($INFO_AUTHOR)}
     <div id="Author" class="imageInfo">
@@ -209,7 +211,7 @@ function setPrivacyLevel(id, level){
 </dl>
 {if isset($metadata)}';
 
-	$repladarkroomcards='
+	$repladarkroomcards = '
   <div id="infopanel-left" class="col-lg-6 col-12">
       <!-- Picture infos -->
       <div id="card-informations" class="card mb-2">
@@ -561,8 +563,8 @@ $(\'#show_exif_data\').on(\'click\', function() {
     </div>
 {/if}
   ';
-  
- $repladarkroomtabs='
+
+	$repladarkroomtabs = '
      <div id="infopanel" class="col-lg-8 col-md-10 col-12 mx-auto">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs nav-justified flex-column flex-sm-row" role="tablist">
@@ -843,8 +845,8 @@ function setPrivacyLevel(id, level){
     </div>
 
  ';
- 
- $replasmart='
+
+	$replasmart = '
  <ul data-role="listview" data-inset="true" id="PictureInfo">
 {strip}
  <!--mpp -->
@@ -1025,11 +1027,11 @@ function setPrivacyLevel(id, level){
 {if isset($metadata)}
  ';
 
-   $repladarkroom='<div id="theImageInfos" class="row justify-content-center">
+	$repladarkroom = '<div id="theImageInfos" class="row justify-content-center">
 {if $theme_config->picture_info == \'cards\'}'
-	.$repladarkroomcards.'    
+		. $repladarkroomcards . '    
 {elseif $theme_config->picture_info == \'tabs\'}'
-	.$repladarkroomtabs.'   
+		. $repladarkroomtabs . '   
 {elseif $theme_config->picture_info == \'sidebar\' || $theme_config->picture_info == \'disabled\'}
     <div class="col-lg-8 col-md-10 col-12 mx-auto">
       {include file=\'picture_info_comments.tpl\'} 
@@ -1039,130 +1041,161 @@ function setPrivacyLevel(id, level){
 
 {if !empty($PLUGIN_PICTURE_AFTER)}{$PLUGIN_PICTURE_AFTER}{/if}
  ';
-  if ($user['theme'] == 'daw_theme'){
-	  $themeconfig = new \DawTheme\Config();
-		if($themeconfig->picture_info=='sidebar'){
+	if ($user['theme'] == 'daw_theme') {
+		$themeconfig = new \DawTheme\Config();
+		if ($themeconfig->picture_info == 'sidebar') {
 			$search = '/(<dl id="standard" class="imageInfoTable">).*({if isset\(\$metadata\)})/is';
-			return preg_replace($search, $replastandard , $content);
-		}else{
-			$search = '/(<div id="theImageInfos" class="row justify-content-center">).*({if \!empty\(\$PLUGIN_PICTURE_AFTER\)}{\$PLUGIN_PICTURE_AFTER}{\/if})/is';	
-			return preg_replace($search, $repladarkroom , $content);
+			return preg_replace($search, $replastandard, $content);
+		} else {
+			$search = '/(<div id="theImageInfos" class="row justify-content-center">).*({if \!empty\(\$PLUGIN_PICTURE_AFTER\)}{\$PLUGIN_PICTURE_AFTER}{\/if})/is';
+			return preg_replace($search, $repladarkroom, $content);
 		}
-	}else if ($user['theme'] == 'smartpocket'){
-	  $search = '/(<ul data-role="listview" data-inset="true" id="PictureInfo">).*({if isset\(\$metadata\)})/is';
-	   return preg_replace($search, $replasmart , $content);
-	}else{
-	  $search = '/(<dl id="standard" class="imageInfoTable">).*({if isset\(\$metadata\)})/is';
-	  return preg_replace($search, $replastandard , $content);
-  }
+	} else if ($user['theme'] == 'smartpocket') {
+		$search = '/(<ul data-role="listview" data-inset="true" id="PictureInfo">).*({if isset\(\$metadata\)})/is';
+		return preg_replace($search, $replasmart, $content);
+	} else {
+		$search = '/(<dl id="standard" class="imageInfoTable">).*({if isset\(\$metadata\)})/is';
+		return preg_replace($search, $replastandard, $content);
+	}
+	if ($user['theme'] == 'bootstrap_darkroom') {
+		$themeconfig = new \BootstrapDarkroom\Config();
+		if ($themeconfig->picture_info == 'sidebar') {
+			$search = '/(<dl id="standard" class="imageInfoTable">).*({if isset\(\$metadata\)})/is';
+			return preg_replace($search, $replastandard, $content);
+		} else {
+			$search = '/(<div id="theImageInfos" class="row justify-content-center">).*({if \!empty\(\$PLUGIN_PICTURE_AFTER\)}{\$PLUGIN_PICTURE_AFTER}{\/if})/is';
+			return preg_replace($search, $repladarkroom, $content);
+		}
+	} else if ($user['theme'] == 'smartpocket') {
+		$search = '/(<ul data-role="listview" data-inset="true" id="PictureInfo">).*({if isset\(\$metadata\)})/is';
+		return preg_replace($search, $replasmart, $content);
+	} else {
+		$search = '/(<dl id="standard" class="imageInfoTable">).*({if isset\(\$metadata\)})/is';
+		return preg_replace($search, $replastandard, $content);
+	}
 }
 
 add_event_handler('loc_begin_picture', 'add_InfoT');
 
-function add_InfoT() {
-    global $conf, $page, $template, $lang, $pwg_loaded_plugins,$user;
+function add_InfoT()
+{
+	global $conf, $page, $template, $lang, $pwg_loaded_plugins, $user;
 
-    if (!empty($page['image_id'])) {
+	if (!empty($page['image_id'])) {
 
-	  if ($user['theme'] == 'daw_theme'){
-	  $themeconfig = new \DawTheme\Config();
-		if($themeconfig->picture_info=='cards'){
-			$tagaff = pwg_db_fetch_assoc(pwg_query('SELECT wording FROM '. ADD_PROP_PHOTO_TABLE.' ORDER BY orderprop DESC LIMIT 1'));
-				if($tagaff['wording']=='Tags'){
-					$template->assign('TAGAFF',1);
-				}else{
-					$template->assign('TAGAFF',0);
+		if ($user['theme'] == 'daw_theme') {
+			$themeconfig = new \DawTheme\Config();
+			if ($themeconfig->picture_info == 'cards') {
+				$tagaff = pwg_db_fetch_assoc(pwg_query('SELECT wording FROM ' . ADD_PROP_PHOTO_TABLE . ' ORDER BY orderprop DESC LIMIT 1'));
+				if ($tagaff['wording'] == 'Tags') {
+					$template->assign('TAGAFF', 1);
+				} else {
+					$template->assign('TAGAFF', 0);
 				}
+			}
 		}
-	}
 
+		if ($user['theme'] == 'bootstrap_darkroom') {
+			$themeconfig = new \BootstrapDarkroom\Config();
+			if ($themeconfig->picture_info == 'cards') {
+				$tagaff = pwg_db_fetch_assoc(pwg_query('SELECT wording FROM ' . ADD_PROP_PHOTO_TABLE . ' ORDER BY orderprop DESC LIMIT 1'));
+				if ($tagaff['wording'] == 'Tags') {
+					$template->assign('TAGAFF', 1);
+				} else {
+					$template->assign('TAGAFF', 0);
+				}
+			}
+		}
 
- 	  if (isset($pwg_loaded_plugins['ExtendedDescription'])){add_event_handler('AP_render_content', 'get_user_language_desc');}
-		
-        $tab_add_info_one_photo = tab_add_info_by_photo_show();
-		
-		$query = 'select path FROM ' . IMAGES_TABLE . ' WHERE id = \''.$page['image_id'].'\';';
+		if (isset($pwg_loaded_plugins['ExtendedDescription'])) {
+			add_event_handler('AP_render_content', 'get_user_language_desc');
+		}
+
+		$tab_add_info_one_photo = tab_add_info_by_photo_show();
+
+		$query = 'select path FROM ' . IMAGES_TABLE . ' WHERE id = \'' . $page['image_id'] . '\';';
 		$result = pwg_query($query);
 		$row = pwg_db_fetch_assoc($result);
-		$filename=$row['path'];
+		$filename = $row['path'];
 		$exif = @exif_read_data($filename);
 		$imginfo = array();
 		getimagesize($filename, $imginfo);
-		if (isset ($imginfo['APP13'])){$iptc = iptcparse($imginfo['APP13']);}
-        if (pwg_db_num_rows($tab_add_info_one_photo)) {
-            while ($info_photos = pwg_db_fetch_assoc($tab_add_info_one_photo)) {
-				if($info_photos['Typ']==2){
+		if (isset($imginfo['APP13'])) {
+			$iptc = iptcparse($imginfo['APP13']);
+		}
+		if (pwg_db_num_rows($tab_add_info_one_photo)) {
+			while ($info_photos = pwg_db_fetch_assoc($tab_add_info_one_photo)) {
+				if ($info_photos['Typ'] == 2) {
 					$d = data_info_photosdate($page['image_id'], $info_photos['id_prop_pho']);
-                }else{
+				} else {
 					$d = data_info_photos($page['image_id'], $info_photos['id_prop_pho']);
 				}
 				$row = pwg_db_fetch_assoc($d);
-                $items = array(
-                    'AIPID' => $info_photos['id_prop_pho'],
-                    'AIPORDER' => $info_photos['orderprop'],
-                    'AIPWORDING' => trigger_change('AP_render_content', $info_photos['wording']),
-                );
-				if($info_photos['Typ']==2){
-					$items['AIPDATA']=format_date($row['datadate'],array('day_name', 'day', 'month', 'year','time'));
-					if($info_photos['wording']=="**delpho**"){
-						$items['AIPWORDING'] =l10n('Delete photo');
+				$items = array(
+					'AIPID' => $info_photos['id_prop_pho'],
+					'AIPORDER' => $info_photos['orderprop'],
+					'AIPWORDING' => trigger_change('AP_render_content', $info_photos['wording']),
+				);
+				if ($info_photos['Typ'] == 2) {
+					$items['AIPDATA'] = format_date($row['datadate'], array('day_name', 'day', 'month', 'year', 'time'));
+					if ($info_photos['wording'] == "**delpho**") {
+						$items['AIPWORDING'] = l10n('Delete photo');
 					}
-                }else if($info_photos['Typ']==3){
-				  if(strpos($info_photos['dataprop'],':')!==false){
-				    $exiftab = explode(':', $info_photos['dataprop']);
-					if (isset($exif[$exiftab[0]][$exiftab[1]])){
-						if (isset($pwg_loaded_plugins['exif_view'])){
-							$items['AIPDATA']=exif_key_translation($exif[$exiftab[0]][$exiftab[1]], $exif[$exiftab[0]][$exiftab[1]]);
-						}else{
-							$items['AIPDATA']= $exif[$exiftab[0]][$exiftab[1]];
+				} else if ($info_photos['Typ'] == 3) {
+					if (strpos($info_photos['dataprop'], ':') !== false) {
+						$exiftab = explode(':', $info_photos['dataprop']);
+						if (isset($exif[$exiftab[0]][$exiftab[1]])) {
+							if (isset($pwg_loaded_plugins['exif_view'])) {
+								$items['AIPDATA'] = exif_key_translation($exif[$exiftab[0]][$exiftab[1]], $exif[$exiftab[0]][$exiftab[1]]);
+							} else {
+								$items['AIPDATA'] = $exif[$exiftab[0]][$exiftab[1]];
+							}
+							if ($info_photos['wording'] != $info_photos['dataprop']) {
+							} else if (isset($lang['exif_field_' . $exiftab[1]])) {
+								$items['AIPWORDING'] = $lang['exif_field_' . $exiftab[1]];
+							} else {
+								$items['AIPWORDING'] = $exiftab[1];
+							}
 						}
-						if ($info_photos['wording']!=$info_photos['dataprop']){
-						}else if (isset($lang['exif_field_'.$exiftab[1]])){
-							$items['AIPWORDING']= $lang['exif_field_'.$exiftab[1]];
-						}else{
-							$items['AIPWORDING']= $exiftab[1];
+					} else {
+						if (isset($exif[$info_photos['dataprop']])) {
+							if (isset($pwg_loaded_plugins['exif_view'])) {
+								$items['AIPDATA'] = exif_key_translation($info_photos['dataprop'], $exif[$info_photos['dataprop']]);
+							} else {
+								$items['AIPDATA'] = $exif[$info_photos['dataprop']];
+							}
+							if ($info_photos['wording'] != $info_photos['dataprop']) {
+							} else if (isset($lang['exif_field_' . $info_photos['dataprop']])) {
+								$items['AIPWORDING'] = $lang['exif_field_' . $info_photos['dataprop']];
+							} else {
+								$items['AIPWORDING'] = $info_photos['dataprop'];
+							}
 						}
 					}
-				  }else{
-					if (isset($exif[$info_photos['dataprop']])){
-						if (isset($pwg_loaded_plugins['exif_view'])){
-							$items['AIPDATA']=exif_key_translation($info_photos['dataprop'], $exif[$info_photos['dataprop']]);
-						}else{
-							$items['AIPDATA']= $exif[$info_photos['dataprop']];
-						}
-						if ($info_photos['wording']!=$info_photos['dataprop']){
-						}else if (isset($lang['exif_field_'.$info_photos['dataprop']])){
-							$items['AIPWORDING']= $lang['exif_field_'.$info_photos['dataprop']];
-						}else{
-							$items['AIPWORDING']= $info_photos['dataprop'];
-						}
+				} else if ($info_photos['Typ'] == 6) {
+					$items['AIPWORDING'] = trigger_change('AP_render_content', $info_photos['wording']);
+					if (isset($iptc[$info_photos['dataprop']])) {
+						$items['AIPDATA'] = implode(", ", $iptc[$info_photos['dataprop']]);
 					}
-				  }
-                }else if($info_photos['Typ']==6){
-					$items['AIPWORDING']=trigger_change('AP_render_content', $info_photos['wording']);
-					if (isset($iptc[$info_photos['dataprop']])){
-					$items['AIPDATA']=implode(", ", $iptc[$info_photos['dataprop']]);
+				} else if ($info_photos['Typ'] == 1 and $info_photos['dataprop'] == 'showid') {
+					$items['AIPDATA'] = $page['image_id'];
+				} else {
+					if (isset($row['data'])) {
+						$items['AIPDATA'] = trigger_change('AP_render_content', $row['data']);
+					} else {
+						$items['AIPDATA'] = '';
 					}
-				}else if($info_photos['Typ']==1 AND $info_photos['dataprop']=='showid'){
-					$items['AIPDATA']=$page['image_id'];
-				}else{
-				  if(isset($row['data'])){	
-					$items['AIPDATA']=trigger_change('AP_render_content', $row['data']);
-				  }else{
-					$items['AIPDATA']='';  
-				  }
-                }
-				
+				}
 
-                $template->append('add_info_photos', $items);
-            }
-        }
 
-        $template->assign(
-                array(
-                    'A' => 'a'
-        ));
-    }
+				$template->append('add_info_photos', $items);
+			}
+		}
+
+		$template->assign(
+			array(
+				'A' => 'a'
+			)
+		);
+	}
 }
-
-?>
