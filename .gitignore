@@ -36,6 +36,7 @@ osmmap.php
 # Eclipse
 .settings
 .project
+.buildpath
 
 # vscode
 .vscode
