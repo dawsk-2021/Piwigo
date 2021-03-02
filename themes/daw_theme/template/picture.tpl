@@ -36,6 +36,16 @@
     {/if}
 
     <div id="theImageComment" class="row justify-content-center mb-3">
+        {if isset($TITLE_IMG)}
+            <div class="text-center col-lg-10 col-md-12 mx-auto">
+                <section id="important-info">
+                    <h5 class="imageComment">{$TITLE_IMG}</h5>
+                </section>
+            </div>
+        {/if}
+    </div>
+
+    <div id="theImageComment" class="row justify-content-center mb-3">
         {if isset($COMMENT_IMG)}
             <div class="text-center col-lg-10 col-md-12 mx-auto">
                 <section id="important-info">

@@ -18,6 +18,10 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  color: #6892bf;
+}
+
 @media (min-width: 1800px) {
   .container {
     width: 1600px;
@@ -143,7 +147,7 @@ body {
 
 .navbar {
   width: 100%;
-  max-height: 45px;
+  max-height: 40px;
 }
 
 .navbar.navbar-main {
@@ -168,11 +172,11 @@ body {
 }
 
 .navbar.bg-primary {
-  background-image: linear-gradient(#7b7d80,#757b82 50%,#656d75);
+  background-image: linear-gradient(#6d94bf,#446e9b 50%,#3e648d);
   background-repeat: no-repeat;
   -webkit-filter: none;
   filter: none;
-  border: 1px solid #345578;
+  border: 0px solid #3e648d;
 }
 
 
@@ -217,6 +221,10 @@ body {
 .navbar.navbar-transparent.navbar-sm .collapse.show .navbar-nav,
 .navbar.navbar-transparent.navbar-sm .collapsing .navbar-nav {
   padding-top: 1rem;
+}
+
+.navbar-toggler {
+  border: 0px solid transparent;
 }
 
 .navbar.navbar-transparent .navbar-toggler {
@@ -464,21 +472,36 @@ body {
   display: none;
 }
 
-@media (min-width: 1250px) {
-  .nav-breadcrumb > *:nth-last-child(-n+6) {
-    display: block;
-  }
-  .nav-breadcrumb > .nav-breadcrumb-item {
-    max-width: 300px;
-  }
+#breadcrumb-daw-picture {
+  flex-wrap: nowrap;
+  padding-right: 0;
+  padding-left: 0;
 }
 
-@media (min-width: 1130px) and (max-width: 1249.98px) {
+@media (min-width: 1350px) {
   .nav-breadcrumb > *:nth-last-child(-n+4) {
     display: block;
   }
   .nav-breadcrumb > .nav-breadcrumb-item {
-    max-width: 270px;
+    max-width: 565px;
+  }
+}
+
+@media (min-width: 1250px) and (max-width: 1349.98px){
+  .nav-breadcrumb > *:nth-last-child(-n+4) {
+    display: block;
+  }
+  .nav-breadcrumb > .nav-breadcrumb-item {
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1130px) and (max-width: 1249.98px) {
+  .nav-breadcrumb > *:nth-last-child(-n+3) {
+    display: block;
+  }
+  .nav-breadcrumb > .nav-breadcrumb-item {
+    max-width: 450px;
   }
 }
 
@@ -487,7 +510,7 @@ body {
     display: block;
   }
   .nav-breadcrumb > .nav-breadcrumb-item {
-    max-width: 250px;
+    max-width: 450px;
   }
 }
 
@@ -710,7 +733,6 @@ i.video-indicator {
 
 #navigationButtons {
   text-align: center;
-  margin-bottom: 15px;
   font-size: 1.6em;
 }
 

@@ -52,10 +52,13 @@ function adjustPluginAdminTools(adminToolsInstalled) {
             elements[0].parentNode.remove();
         }
 
-        // var elements = atoHeader.getElementsByClassName("icon-ato-cancel");
-        // while (elements.length > 0) {
-        //     elements[0].parentNode.remove();
-        // }
+        var elements = atoHeader.getElementsByClassName("icon-ato-cancel");
+        for(idx = 0; idx < elements.length; idx++) {
+            if (! elements[idx].className.includes("close-panel")) {
+                 console.log(elements[0].className);
+                 elements[idx].parentNode.remove();
+            }
+        }        
     }
 
     var atoContainer = document.getElementById("ato_container");

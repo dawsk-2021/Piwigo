@@ -842,6 +842,20 @@ SELECT COUNT(*) AS nb_fav
 
 //--------------------------------------------------------- picture information
 // legend
+
+if (isset($picture['current']['TITLE'])
+    and !empty($picture['current']['TITLE']))
+{
+  $template->assign(
+    'TITLE_IMG',
+      trigger_change('render_element_description',
+        $picture['current']['TITLE'],
+        'picture_page_element_description'
+        )
+    );
+}
+
+
 if (isset($picture['current']['comment'])
     and !empty($picture['current']['comment']))
 {

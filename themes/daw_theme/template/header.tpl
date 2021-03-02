@@ -150,7 +150,7 @@ function setNavbarOpacity() {
   var alpha = 0 + ($(window).scrollTop() / sfactor);
   $('.page-header').attr('style', 'background-color: ' + setColorOpacity(color, alpha) + ' !important');
   $('.page-header .content-center').css('opacity', 1 - alpha * 2.5);
-  $('.page-header .page-header-image').css('opacity', 1 - alpha);
+  $('.page-header .page-header-image').css('opacity', 1 - alpha*0.1);
   var top_offset = $(window).scrollTop();
   var p_size = $('.page-header').outerHeight() - $(".navbar-main").outerHeight() - $(".navbar-contextual").outerHeight();
   var c_size = $('.page-header').outerHeight() - $(".navbar-contextual").outerHeight();

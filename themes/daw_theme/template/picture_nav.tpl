@@ -1,7 +1,7 @@
 <nav class="navbar navbar-contextual navbar-expand-lg {$theme_config->navbar_contextual_style} {$theme_config->navbar_contextual_bg} sticky-top mb-2">
-    <div class="container{if $theme_config->fluid_width}-fluid{/if}">
+    <div id="breadcrumb-daw-picture" class="container{if $theme_config->fluid_width}-fluid{/if}">
         <div class="navbar-brand">
-            <div class="nav-breadcrumb d-inline-flex">{$SECTION_TITLE}<span class="nav-breadcrumb-item active">{$current.TITLE}</span></div>
+            <div class="nav-breadcrumb d-inline-flex">{$SECTION_TITLE}</div>
         </div>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#secondary-navbar" aria-controls="secondary-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fas fa-bars"></span>
