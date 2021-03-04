@@ -1,0 +1,4 @@
+File automatically created from SVN or Git repository.
+
+URL: https://github.com/mistic100/Piwigo-Comments-on-Albums 
+Revision: 30652433e0d1cd76d5ff242cf166c1a98ff6507a (Tue Nov 17 13:00:00 2020 +0100)

@@ -1,10 +1,5 @@
 # Piwigo specific directories
 /_data
-/plugins/*
-!/plugins/index.php
-!/plugins/daw_hidden
-!/plugins/PersonalPlugin
-!/plugins/manage_properties_photos
 /upload
 /galleries/*
 !/galleries/index.php
@@ -17,6 +12,13 @@
 osmmap.php
 
 /piwigo-logos
+
+/plugins/*
+!/plugins/index.php
+!/plugins/daw_hidden
+!/plugins/PersonalPlugin
+!/plugins/manage_properties_photos
+!/plugins/Comments_on_Albums
 
 /themes/bootstrap_darkroom/language/
 !/themes/bootstrap_darkroom/language/de_DE
