@@ -4,8 +4,6 @@ function adjustPluginAdminTools(adminToolsInstalled) {
         return;
     }
 
-    console.log(adminToolsInstalled);
-
     var authorContent = document.getElementById("quick_edit_author");
     if (authorContent != null) {
         if (authorContent.value.includes("Bieser FR")) {
@@ -18,11 +16,6 @@ function adjustPluginAdminTools(adminToolsInstalled) {
     if (atoHeader != null) {
 
         var elements = atoHeader.getElementsByClassName("icon-users");
-        while (elements.length > 0) {
-            elements[0].parentNode.remove();
-        }
-
-        var elements = atoHeader.getElementsByClassName("icon-wrench");
         while (elements.length > 0) {
             elements[0].parentNode.remove();
         }
@@ -52,13 +45,17 @@ function adjustPluginAdminTools(adminToolsInstalled) {
             elements[0].parentNode.remove();
         }
 
+        var elements = atoHeader.getElementsByClassName("icon-wrench");
+        console.log(elements[0].href)  
+        elements[0].href = elements[0].href.replace(/maintenance/i,"comments");
+
         var elements = atoHeader.getElementsByClassName("icon-ato-cancel");
-        for(idx = 0; idx < elements.length; idx++) {
-            if (! elements[idx].className.includes("close-panel")) {
-                 console.log(elements[0].className);
-                 elements[idx].parentNode.remove();
+        for (idx = 0; idx < elements.length; idx++) {
+            if (!elements[idx].className.includes("close-panel")) {
+                console.log(elements[0].className);
+                elements[idx].parentNode.remove();
             }
-        }        
+        }
     }
 
     var atoContainer = document.getElementById("ato_container");
@@ -132,24 +129,37 @@ function adjustAdminPages() {
 
         /* Remove -User Konfiguration- */
         var elements = blockMenueBar.getElementsByClassName("icon-users");
-        while (elements.length > 0) {
-            elements[0].parentNode.parentNode.remove();
+        for (idx = 0; elements.length > idx; idx++) {
+            elements[idx].parentNode.parentNode.remove();
+        }
+
+        /* Remove - plugins entry from admin- */
+        var elements = blockMenueBar.getElementsByClassName("icon-puzzle");
+        for (idx = 0; elements.length > idx; idx++) {
+            elements[idx].parentNode.parentNode.parentNode.remove();
         }
 
         /* Remove -Tools from admin- */
         var elements = blockMenueBar.getElementsByClassName("icon-wrench");
-        while (elements.length > 0) {
-            elements[0].parentNode.parentNode.remove();
+        for (idx = 0; elements.length > idx; idx++) {
+            var subElements = elements[idx].parentNode.parentNode.getElementsByClassName("icon-exchange");
+            subElements[0].parentNode.parentNode.remove();
+
+            subElements = elements[idx].parentNode.parentNode.getElementsByClassName("icon-flow-branch");
+            subElements[0].parentNode.parentNode.remove();
+
+            subElements = elements[idx].parentNode.parentNode.getElementsByClassName("icon-signal");
+            subElements[0].parentNode.parentNode.remove();
+
+            subElements = elements[idx].parentNode.parentNode.getElementsByClassName("icon-tools");
+            subElements[0].parentNode.parentNode.remove();
+
+            subElements = elements[idx].parentNode.parentNode.getElementsByClassName("icon-arrows-cw");
+            subElements[0].parentNode.parentNode.remove();
         }
 
         /* Remove -Tools from admin- */
         var elements = blockMenueBar.getElementsByClassName("icon-cog");
-        while (elements.length > 0) {
-            elements[0].parentNode.parentNode.remove();
-        }
-
-        /* Remove -Tools from admin- */
-        var elements = blockMenueBar.getElementsByClassName("icon-puzzle");
         while (elements.length > 0) {
             elements[0].parentNode.parentNode.remove();
         }
@@ -177,3 +187,18 @@ function adjustAdminPages() {
         }
     }
 }
+
+function adjustCommentPage() {
+    var pendingComments = document.getElementById("pendingComments");
+
+    if (pendingComments != null) {
+
+        var commentFilter = pendingComments.parentElement.getElementsByClassName("commentFilter");
+        console.log(commentFilter[0]); 
+        
+        commentFilter[0].remove();
+
+        var valButton = pendingComments.querySelector("[name='validate']");
+        valButton.remove();
+    }
+} 

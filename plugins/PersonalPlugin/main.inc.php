@@ -32,7 +32,30 @@ function add_features()
   if ($user["level"] != 8) {
     $template->set_prefilter('header', 'adjust_admin_pages', 100);
   }
+
+  $template->set_prefilter('header', 'adjust_comment_page', 100);
 }
+
+
+function adjust_comment_page($content)
+{
+  global $pwg_loaded_plugins;
+
+  $search = '<body id="{$BODY_ID}">';
+  $scroll = '
+  <script type="text/JavaScript" src="plugins/PersonalPlugin/main.js"></script>
+  {footer_script}
+  {literal}
+  $( document ).ready(function() {
+    //console.log( "ready!" );
+    adjustCommentPage();
+  });
+  {/literal}{/footer_script}
+  ';
+
+  return str_replace($search, $search . $scroll, $content);
+}
+
 
 /*
 Nur Nutzer mit Datenschutzlevel Administrator dürfen Bilder oder Alben löschen. 
