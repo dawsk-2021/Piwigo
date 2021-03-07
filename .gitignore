@@ -19,6 +19,7 @@ osmmap.php
 !/plugins/PersonalPlugin
 !/plugins/manage_properties_photos
 !/plugins/Comments_on_Albums
+!/plugins/AdminTools
 
 /themes/bootstrap_darkroom/language/
 !/themes/bootstrap_darkroom/language/de_DE
