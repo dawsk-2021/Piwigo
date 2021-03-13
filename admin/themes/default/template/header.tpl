@@ -12,6 +12,7 @@
 <title>{$GALLERY_TITLE} :: {$PAGE_TITLE}</title>
 <link rel="shortcut icon" type="image/x-icon" href="{$ROOT_URL}{$themeconf.icon_dir}/favicon.ico">
 <link rel="stylesheet" type="text/css" href="{$ROOT_URL}admin/themes/default/fonts/open-sans/open-sans.css">
+<link rel="stylesheet" type="text/css" href="{$ROOT_URL}plugins/AdminTools/template/admin_style.css">
 
 {strip}
 {combine_css path="admin/themes/default/fontello/css/fontello.css" order=-10}
