@@ -140,6 +140,10 @@ a {
   flex-flow: row wrap;
 }
 
+.navbar-expand-lg {
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
 .navbar-expand-lg .navbar-nav .nav-link {
   padding-left: .8rem;
   padding-right: .8rem;
@@ -159,6 +163,26 @@ a {
   margin-bottom: 2rem;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+
+.tag-page-none {
+  display: none!important;
+}
+
+.tagLetterLegend {
+  background-color: #bed2e7;
+  margin-bottom: .0rem;
+  margin-top: .5rem;
+  font-weight: bold;
+  font-size: 1.275rem;
+}
+
+.tagLetter {
+  padding: 5px;
+}
+
+#navbar-nav-tag-page {
+  flex-direction: unset;
 }
 
 @media (max-width: 767.98px) {
@@ -398,7 +422,7 @@ a {
 @media (max-width: 991.98px) {
   .navbar .dropdown-menu {
     max-height: 50vh;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
   }
   .navbar .dropdown-menu::-webkit-scrollbar {
     display: none;
