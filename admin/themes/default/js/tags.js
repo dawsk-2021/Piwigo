@@ -53,6 +53,7 @@ function createTagBox(id, name, url_name, count) {
     newTag.addClass('selection');
     newTag.find(".in-selection-mode").show();
   }
+
   if (count > 0) {
     newTag.find('.dropdown-option.view, .dropdown-option.manage').css('display', 'block');
     newTag.find('.tag-dropdown-header i').html(str_number_photos.replace('%d', count));
@@ -798,6 +799,9 @@ function isDataSearched(tagObj) {
   let stringSearch = $("#search-tag .search-input").val();
   if (stringSearch.charAt(0) == '!') {
     //not part
+    if (stringSearch.length == 1) {
+      return true;
+    }
     stringSearch = stringSearch.substring(1);
     if (name.includes(stringSearch.toLowerCase())) {
       return false;
@@ -972,7 +976,7 @@ function updatePage() {
         } else if (dataToDisplay.length > tagBoxes.length) {
           for (let j = boxToRecycle; j < dataToDisplay.length; j++) {
             let tag = dataToDisplay[j];
-            newTag = createTagBox(tag.id, tag.name, tag.url_name);
+            newTag = createTagBox(tag.id, tag.name, tag.url_name, tag.counter);
             newTag.css('opacity', 0);
             $('.tag-container').append(newTag);
             setupTagbox(newTag);
@@ -990,6 +994,7 @@ function updatePage() {
       displayTags.then(() => {
         $('.pageLoad').fadeOut();
         $('.tag-box').animate({ opacity: 1 }, 500);
+
         if (getNumberPages() > 1) {
           $('.tag-pagination').animate({ opacity: 1 }, 500);
         }
@@ -1013,18 +1018,21 @@ $('.pagination-arrow.left').on('click', () => {
   movePage(false);
 })
 
-if (getNumberPages() > 1) {
-  $('.tag-pagination').show();
-  createPaginationMenu();
-  updateArrows();
-} else {
-  $('.tag-pagination').hide();
-}
 
-$('.pagination-per-page a').on('click', function () {
-  per_page = parseInt($(this).html());
-  updatePaginationMenu();
-})
+function tagMain() {
+  if (getNumberPages() > 1) {
+    $('.tag-pagination').show();
+    createPaginationMenu();
+    updateArrows();
+  } else {
+    $('.tag-pagination').hide();
+  }
+
+  $('.pagination-per-page a').on('click', function () {
+    per_page = parseInt($(this).html());
+    updatePaginationMenu();
+  })
+}
 
 function updateSearchInfo() {
   if ($('.search-input').val() != '') {
@@ -1038,3 +1046,5 @@ function updateSearchInfo() {
     $('.search-info').html('');
   }
 }
+
+tagMain();
