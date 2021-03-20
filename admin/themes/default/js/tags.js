@@ -10,8 +10,8 @@ $('.tag-warning p a').on('click', () => {
   let tags = orphan_tag_names;
   let str_orphans = str_orphan_tags.replace('%s1', tags.length).replace('%s2', tags.join(', '));
   $.confirm({
-    content: str_orphans,
-    title: str_delete_orphan_tags,
+    content : str_orphans,
+    title : str_delete_orphan_tags,
     draggable: false,
     theme: "modern",
     animation: "zoom",
@@ -22,16 +22,16 @@ $('.tag-warning p a').on('click', () => {
     backgroundDismiss: true,
     typeAnimated: false,
     buttons: {
-      delete: {
-        text: str_delete_them,
+      delete : {
+        text:str_delete_them,
         btnClass: 'btn-red',
-        action: function () {
+        action: function() {
           window.location.href = url.replace(/amp;/g, '');
         }
       },
-      keep: {
-        text: str_keep_them,
-        action: function () {
+      keep : {
+        text:str_keep_them,
+        action: function() {
           $('.tag-warning').hide();
         }
       }
@@ -42,18 +42,17 @@ $('.tag-warning p a').on('click', () => {
 
 //Create and recycle tag box
 function createTagBox(id, name, url_name, count) {
-  let u_edit = 'admin.php?page=batch_manager&filter=tag-' + id;
-  let u_view = 'index.php?/tags/' + id + '-' + url_name;
+  let u_edit = 'admin.php?page=batch_manager&filter=tag-'+id;
+  let u_view = 'index.php?/tags/'+id+'-'+url_name;
   let html = $('.tag-template').html()
     .replace(/%name%/g, unescape(name))
     .replace('%U_VIEW%', u_view)
     .replace('%U_EDIT%', u_edit)
-  newTag = $('<div class="tag-box" data-id=' + id + ' data-selected="0">' + html + '</div>');
+  newTag = $('<div class="tag-box" data-id='+id+' data-selected="0">'+html+'</div>');
   if ($("#toggleSelectionMode").is(":checked")) {
     newTag.addClass('selection');
     newTag.find(".in-selection-mode").show();
   }
-
   if (count > 0) {
     newTag.find('.dropdown-option.view, .dropdown-option.manage').css('display', 'block');
     newTag.find('.tag-dropdown-header i').html(str_number_photos.replace('%d', count));
@@ -71,11 +70,11 @@ function recycleTagBox(tagBox, id, name, url_name, count) {
   tagBox.attr('data-selected', 0)
 
   //Dropdown
-  let u_edit = 'admin.php?page=batch_manager&filter=tag-' + id;
-  let u_view = 'index.php?/tags/' + id + '-' + url_name;
+  let u_edit = 'admin.php?page=batch_manager&filter=tag-'+id;
+  let u_view = 'index.php?/tags/'+id+'-'+url_name;
   tagBox.find('.dropdown-option.view').attr('href', u_view);
   tagBox.find('.dropdown-option.manage').attr('href', u_edit);
-
+  
   if (count > 0) {
     tagBox.find('.dropdown-option.view, .dropdown-option.manage').css('display', 'block');
     tagBox.find('.tag-dropdown-header i').html(str_number_photos.replace('%d', count));
@@ -90,19 +89,19 @@ function updateBadge() {
 }
 
 //Add a tag
-$('.add-tag-container').on('click', function () {
+$('.add-tag-container').on('click', function() {
   $('#add-tag').addClass('input-mode');
   $('#add-tag-input').focus();
   $('.tag-info').hide();
 })
 
-$('#add-tag .icon-cancel-circled').on('click', function () {
+$('#add-tag .icon-cancel-circled').on('click', function() {
   $('#add-tag').removeClass('input-mode');
   $('.tag-info').hide();
 })
 
 //Display/Hide tag option
-$('.tag-box').each(function () {
+$('.tag-box').each(function() {
   setupTagbox($(this))
 })
 
@@ -114,9 +113,9 @@ $('#add-tag').submit(function (e) {
   e.preventDefault();
   if ($('#add-tag-input').val() != "") {
     loadState = new TemporaryState();
-    loadState.removeClass($('#add-tag .icon-validate'), 'icon-plus');
-    loadState.changeHTML($('#add-tag .icon-validate'), "<i class='icon-spin6 animate-spin'> </i>")
-    loadState.changeAttribute($('#add-tag .icon-validate'), 'style', 'pointer-event:none')
+    loadState.removeClass($('#add-tag .icon-validate'),'icon-plus');
+    loadState.changeHTML($('#add-tag .icon-validate') , "<i class='icon-spin6 animate-spin'> </i>")
+    loadState.changeAttribute($('#add-tag .icon-validate'), 'style','pointer-event:none')
     addTag($('#add-tag-input').val()).then(function () {
       showMessage(str_tag_created.replace('%s', $('#add-tag-input').val()));
       $('#add-tag-input').val("");
@@ -155,16 +154,16 @@ function addTag(name) {
 
           //Update the data
           dataTags.unshift({
-            name: data.result.name,
-            id: data.result.id,
-            url_name: data.result.url_name
+            name:data.result.name,
+            id:data.result.id,
+            url_name:data.result.url_name
           });
           resolve();
         } else {
           reject(str_already_exist.replace('%s', name));
         }
       },
-      error: function (err) {
+      error : function (err) {
         reject(err);
       }
     })
@@ -175,7 +174,7 @@ function addTag(name) {
 -------*/
 
 function setupTagbox(tagBox) {
-
+  
   //Dropdown options
   tagBox.find('.showOptions').on('click', function () {
     tagBox.find(".tag-dropdown-block").css('display', 'grid');
@@ -195,7 +194,7 @@ function setupTagbox(tagBox) {
   });
 
   // Selection behaviour
-  tagBox.on('click', function () {
+  tagBox.on('click', function() {
     if ($('.tag-container').hasClass('selection')) {
       if (tagBox.attr('data-selected') == '1') {
         tagBox.attr('data-selected', '0');
@@ -209,17 +208,17 @@ function setupTagbox(tagBox) {
   })
 
   //Edit Name
-  tagBox.find('.dropdown-option.edit').on('click', function () {
+  tagBox.find('.dropdown-option.edit').on('click', function() {
     tagBox.addClass('edit-name');
     tagBox.find(".tag-name-editable").focus();
   })
 
-  tagBox.find('.tag-rename .icon-cancel').on('click', function () {
+  tagBox.find('.tag-rename .icon-cancel').on('click', function() {
     tagBox.removeClass('edit-name');
     tagBox.find('.tag-name-editable').val(tagBox.find('.tag-name').html());
   })
 
-  tagBox.find('.tag-rename .validate').on('click', function () {
+  tagBox.find('.tag-rename .validate').on('click', function() {
     tagBox.find('.tag-rename form').submit();
   })
 
@@ -245,7 +244,7 @@ function setupTagbox(tagBox) {
   //Delete Tag
   tagBox.find('.dropdown-option.delete').on('click', function () {
     $.confirm({
-      title: str_delete.replace("%s", tagBox.find('.tag-name').html()),
+      title: str_delete.replace("%s",tagBox.find('.tag-name').html()),
       buttons: {
         confirm: {
           text: str_yes_delete_confirmation,
@@ -265,7 +264,7 @@ function setupTagbox(tagBox) {
   //Duplicate Tag
   tagBox.find('.dropdown-option.duplicate').on('click', function () {
     duplicateTag(tagBox.data('id'), tagBox.find('.tag-name').html()).then((data) => {
-      showMessage(str_tag_created.replace('%s', data.result.name))
+      showMessage(str_tag_created.replace('%s',data.result.name))
     })
   })
 
@@ -273,8 +272,8 @@ function setupTagbox(tagBox) {
 
 function removeTag(id, name) {
   $.alert({
-    title: str_tag_deleted.replace("%s", name),
-    content: function () {
+      title : str_tag_deleted.replace("%s",name),
+      content: function() {
       return jQuery.ajax({
         url: "ws.php?format=json&method=pwg.tags.delete",
         type: "POST",
@@ -284,9 +283,9 @@ function removeTag(id, name) {
         },
         success: function (raw_data) {
           data = jQuery.parseJSON(raw_data);
-
+          
           if (data.stat === "ok") {
-            $('.tag-box[data-id=' + id + ']').remove();
+            $('.tag-box[data-id='+id+']').remove();
             //Update data
             dataTags = dataTags.filter((tag) => tag.id != id);
             showMessage(str_tag_deleted.replace('%s', name));
@@ -309,16 +308,16 @@ function renameTag(id, new_name) {
       url: "ws.php?format=json&method=pwg.tags.rename",
       type: "POST",
       data: {
-        tag_id: id,
+        tag_id: id, 
         new_name: new_name,
         pwg_token: pwg_token
       },
       success: function (raw_data) {
         data = jQuery.parseJSON(raw_data);
         if (data.stat === "ok") {
-          $('.tag-box[data-id=' + id + '] p, .tag-box[data-id=' + id + '] .tag-dropdown-header b').html(data.result.name);
-          $('.tag-box[data-id=' + id + '] .tag-name-editable').attr('value', data.result.name);
-          let u_view = 'index.php?/tags/' + id + '-' + data.result.url_name;
+          $('.tag-box[data-id='+id+'] p, .tag-box[data-id='+id+'] .tag-dropdown-header b').html(data.result.name);
+          $('.tag-box[data-id='+id+'] .tag-name-editable').attr('value', data.result.name);
+          let u_view = 'index.php?/tags/'+id+'-'+data.result.url_name;
           $('.dropdown-option.view').attr('href', u_view);
 
           //Update the data
@@ -331,7 +330,7 @@ function renameTag(id, new_name) {
           reject(str_already_exist.replace('%s', new_name))
         }
       },
-      error: function (XMLHttpRequest) {
+      error:function(XMLHttpRequest) {
         reject(XMLHttpRequest.statusText);
       }
     })
@@ -342,7 +341,7 @@ function duplicateTag(id, name) {
   return new Promise((resolve, reject) => {
     copy_name = name + str_copy;
 
-    let name_exist = function (name) {
+    let name_exist = function(name) {
       exist = false;
       $(".tag-box .tag-name").each(function () {
         if ($(this).html() === name)
@@ -352,7 +351,8 @@ function duplicateTag(id, name) {
     }
 
     let i = 1;
-    while (name_exist(copy_name)) {
+    while (name_exist(copy_name)) 
+    {
       copy_name = name + str_other_copy.replace("%s", i++)
     }
 
@@ -360,31 +360,31 @@ function duplicateTag(id, name) {
       url: "ws.php?format=json&method=pwg.tags.duplicate",
       type: "POST",
       data: {
-        tag_id: id,
-        copy_name: copy_name,
+        tag_id : id,
+        copy_name: copy_name, 
         pwg_token: pwg_token
       },
       success: function (raw_data) {
         data = jQuery.parseJSON(raw_data);
         if (data.stat === "ok") {
           newTag = createTagBox(data.result.id, data.result.name, data.result.url_name, data.result.count);
-          newTag.insertAfter($('.tag-box[data-id=' + id + ']'));
+          newTag.insertAfter($('.tag-box[data-id='+id+']'));
           setupTagbox(newTag);
 
           //Update Data
           index = dataTags.findIndex((tag) => tag.id == id);
-          dataTags.splice(index + 1, 0, {
+          dataTags.splice(index+1, 0, {
             name: data.result.name,
             id: data.result.id,
             url_name: data.result.url_name,
-            counter: data.result.count
+            counter : data.result.count
           });
           updateBadge();
           updateSearchInfo();
           resolve(data);
         }
       },
-      error: function (XMLHttpRequest) {
+      error:function(XMLHttpRequest) {
         reject(XMLHttpRequest.statusText);
       }
     })
@@ -444,9 +444,9 @@ function addSelectedItem(id) {
 }
 
 function createSelectionItem(id, name) {
-  let newItemStructure = $('<div data-id="' + id + '"><a class="icon-cancel"></a><p>' + name + '</p> </div>');
+  let newItemStructure = $('<div data-id="'+id+'"><a class="icon-cancel"></a><p>'+name+'</p> </div>');
   $('.selection-mode-tag .tag-list').prepend(newItemStructure);
-  $('.selection-mode-tag .tag-list div[data-id=' + id + '] a').on('click', function () {
+  $('.selection-mode-tag .tag-list div[data-id='+id+'] a').on('click', function () {
     removeSelectedItem(id);
   });
 }
@@ -454,25 +454,25 @@ function createSelectionItem(id, name) {
 function removeSelectedItem(id) {
   if (selected.findIndex((tag) => tag == id) > -1) {
 
-    selected = selected.filter((tag) => { return parseInt(tag) != parseInt(id) });
+    selected = selected.filter((tag) => {return parseInt(tag) != parseInt(id)});
 
-    $('.tag-box[data-id=' + id + ']').attr('data-selected', '0');
-    if ($('.selection-mode-tag .tag-list div[data-id=' + id + ']').length != 0) {
-      $('.selection-mode-tag .tag-list div[data-id=' + id + ']').remove();
+    $('.tag-box[data-id='+id+']').attr('data-selected', '0');
+    if ($('.selection-mode-tag .tag-list div[data-id='+id+']').length != 0) {
+      $('.selection-mode-tag .tag-list div[data-id='+id+']').remove();
 
       if (selected.length >= maxItemDisplayed) {
         let i = 0;
         isNotCreate = true
-        while (i < selected.length && isNotCreate) {
-          if ($('.selection-mode-tag .tag-list div[data-id=' + selected[i] + ']').length == 0) {
-            isNotCreate = false;
-            indexOfTag = dataTags.findIndex(tag => tag.id == selected[i])
-            createSelectionItem(selected[i], dataTags[indexOfTag].name);
-          }
-          i++;
+        while (i<selected.length && isNotCreate) {
+            if ($('.selection-mode-tag .tag-list div[data-id='+selected[i]+']').length == 0) {
+              isNotCreate = false;
+              indexOfTag = dataTags.findIndex(tag => tag.id == selected[i])
+              createSelectionItem(selected[i], dataTags[indexOfTag].name);
+            }
+            i++;
         }
       }
-    }
+    } 
 
     let numberDisplayed = $('.selection-mode-tag .tag-list div').length;
     $('.selection-other-tags').html(str_and_others_tags.replace('%s', selected.length - numberDisplayed))
@@ -485,11 +485,11 @@ function removeSelectedItem(id) {
   }
 }
 
-function updateMergeItems() {
+function updateMergeItems () {
   $('#MergeOptionsChoices').html('');
   selected.forEach(id => {
     $('#MergeOptionsChoices').append(
-      $('<option value="' + id + '">' + dataTags.find((tag) => tag.id == id).name + '</option>')
+      $('<option value="'+id+'">'+dataTags.find((tag) => tag.id == id).name+'</option>')
     )
   })
 }
@@ -523,36 +523,36 @@ function updateSelectionContent() {
   }
 }
 
-$('#MergeSelectionMode').on('click', function () {
+$('#MergeSelectionMode').on('click', function() {
   mergeOption = true;
   updateSelectionContent();
 });
 
-$('#CancelMerge').on('click', function () {
+$('#CancelMerge').on('click', function() {
   mergeOption = false;
   updateSelectionContent()
 });
 
-$('#selectAll').on('click', function () {
+$('#selectAll').on('click', function() {
   selectAll(tagToDisplay())
   updateSelectionContent();
   if (selected.length < dataTags.length) {
     showSelectMessage(
-      str_selection_done.replace('%d', $('.tag-box').length),
-      str_select_all_tag.replace('%d', dataTags.length),
-      function () {
-        $('.tag-select-message a').html("");
-        $('.tag-select-message div').html("<i class='icon-spin6 animate-spin'> </i>");
-        setTimeout(() => {
-          selectAll(dataTags).then(() => {
-            updateSelectionContent();
-            showSelectMessage(str_tag_selected.replace(/%d/g, selected.length), str_clear_selection, function () {
-              selectNone();
-              $('.tag-select-message').slideUp();
-            })
+      str_selection_done.replace('%d', $('.tag-box').length), 
+      str_select_all_tag.replace('%d', dataTags.length), 
+      function() {
+      $('.tag-select-message a').html("");
+      $('.tag-select-message div').html("<i class='icon-spin6 animate-spin'> </i>");
+      setTimeout(() => {
+        selectAll(dataTags).then(() => {
+          updateSelectionContent();
+          showSelectMessage(str_tag_selected.replace(/%d/g, selected.length), str_clear_selection, function() {
+            selectNone();
+            $('.tag-select-message').slideUp();
           })
-        }, 5);
-      });
+        })
+      }, 5);
+    });
   }
 });
 
@@ -560,7 +560,7 @@ function selectAll(data) {
   promises = [];
   data.forEach((tag) => {
     promises.push(new Promise((res, rej) => {
-      $('.tag-box[data-id=' + tag.id + ']').attr('data-selected', 1);
+      $('.tag-box[data-id='+tag.id+']').attr('data-selected', 1);
       addSelectedItem(tag.id);
       res();
     }))
@@ -585,7 +585,7 @@ function showSelectMessage(str1, str2, callback) {
   $('.tag-select-message a').on('click', callback);
 }
 
-$('#selectNone').on('click', function () {
+$('#selectNone').on('click', function() {
   $('.tag-select-message').slideUp();
   selectNone();
 });
@@ -595,14 +595,14 @@ function selectNone() {
   clearSelection();
 }
 
-$('#selectInvert').on('click', function () {
+$('#selectInvert').on('click', function() {
   $('.tag-select-message').slideUp();
   selectInvert(tagToDisplay());
 });
 
 function selectInvert(data) {
   data.forEach((tag) => {
-    tagBox = $('.tag-box[data-id=' + tag.id + ']');
+    tagBox = $('.tag-box[data-id='+tag.id+']');
     if (tagBox.attr('data-selected') == 1) {
       tagBox.attr('data-selected', '0');
       removeSelectedItem(tag.id)
@@ -619,25 +619,25 @@ function selectInvert(data) {
 -------*/
 
 //Remove tags
-$('#DeleteSelectionMode').on('click', function () {
+$('#DeleteSelectionMode').on('click', function() {
   let names = [];
   selected.forEach(function (id) {
     names.push(dataTags.find((tag) => tag.id == id).name);
   })
 
   $.confirm({
-    title: str_delete_tags.replace("%s", tagListToString(names)),
+    title: str_delete_tags.replace("%s",tagListToString(names)),
     buttons: {
-      confirm: {
-        text: str_yes_delete_confirmation,
-        btnClass: 'btn-red',
-        action: function () {
-          removeSelectedTags();
+        confirm: {
+          text: str_yes_delete_confirmation,
+          btnClass: 'btn-red',
+          action: function () {
+            removeSelectedTags();
+          }
+        },
+        cancel: {
+          text: str_no_delete_confirmation
         }
-      },
-      cancel: {
-        text: str_no_delete_confirmation
-      }
     },
     ...jConfirm_confirm_options
   });
@@ -650,8 +650,8 @@ function removeSelectedTags() {
   })
 
   $.alert({
-    title: str_tags_deleted.replace("%s", tagListToString(names)),
-    content: function () {
+    title : str_tags_deleted.replace("%s",tagListToString(names)),
+    content: function() {
       return jQuery.ajax({
         url: "ws.php?format=json&method=pwg.tags.delete",
         type: "POST",
@@ -662,8 +662,8 @@ function removeSelectedTags() {
         success: function (raw_data) {
           raw_data = raw_data.slice(raw_data.search('{'));
           if (JSON.parse(raw_data).stat = 'ok') {
-            selected.forEach(function (id) {
-              $('.tag-box[data-id=' + id + ']').remove();
+            selected.forEach(function(id) {
+              $('.tag-box[data-id='+id+']').remove();
             })
 
             // Update Data
@@ -677,7 +677,7 @@ function removeSelectedTags() {
             return raw_data;
           }
         },
-        error: function (message) {
+        error: function(message) {
           return message;
         }
       })
@@ -687,27 +687,27 @@ function removeSelectedTags() {
 }
 
 //Merge Tags
-$('.ConfirmMergeButton').on('click', () => {
+$('.ConfirmMergeButton').on('click',() => {
   dest_id = $('#MergeOptionsChoices').val();
   mergeGroups(dest_id, selected)
 })
 
 function mergeGroups(destination_id, merge_ids) {
 
-  destination_name = $('.tag-box[data-id=' + destination_id + '] .tag-name').html();
+  destination_name = $('.tag-box[data-id='+destination_id+'] .tag-name').html();
   merge_name = [];
 
-  merge_ids.forEach((id) => {
-    merge_name.push($('.tag-box[data-id=' + id + '] .tag-name').html());
+  merge_ids.forEach((id) =>{
+    merge_name.push($('.tag-box[data-id='+id+'] .tag-name').html());
   })
-
+  
   str_message = str_merged_into
     .replace('%s1', tagListToString(merge_name))
     .replace('%s2', destination_name)
 
   $.alert({
-    title: str_message,
-    content: function () {
+    title : str_message,
+    content: function() {
       return jQuery.ajax({
         url: "ws.php?format=json&method=pwg.tags.merge",
         type: "POST",
@@ -722,16 +722,16 @@ function mergeGroups(destination_id, merge_ids) {
           if (data.stat === "ok") {
             data.result.deleted_tag.forEach((id) => {
               if (data.result.destination_tag != id) {
-                $('.tag-box[data-id=' + id + ']').remove();
+                $('.tag-box[data-id='+id+']').remove();
                 // Update data
                 dataTags = dataTags.filter((tag) => id != tag.id);
               }
             })
             if (data.result.images_in_merged_tag.length > 0) {
-              tagBox = $('.tag-box[data-id=' + data.result.destination_tag + ']')
-              tagBox.find('.dropdown-option.view,' +
-                '.dropdown-option.manage,' +
-                '.tag-dropdown-header i').show();
+              tagBox = $('.tag-box[data-id='+data.result.destination_tag+']')
+              tagBox.find('.dropdown-option.view,'+ 
+              '.dropdown-option.manage,'+
+              '.tag-dropdown-header i').show();
               $('.tag-dropdown-header i').html(str_number_photos.replace('%d', data.result.images_in_merged_tag.length));
 
               // Update data
@@ -755,7 +755,7 @@ function mergeGroups(destination_id, merge_ids) {
 
 function tagListToString(list) {
   if (list.length > 5) {
-    return list.slice(0, 5).join(', ')
+    return list.slice(0,5).join(', ') 
       + ' '
       + str_and_others_tags.replace('%s', list.length - 5);
   } else {
@@ -771,7 +771,7 @@ var maxShown = 100;
 var searchTimeOut;
 var delaySearchInput = 300;
 
-$("#search-tag .search-input").on("input", function () {
+$("#search-tag .search-input").on("input", function() {
   actualPage = 1;
 
   clearTimeout(searchTimeOut);
@@ -863,7 +863,7 @@ function promiseFinish() {
     updateAsk = false;
     askUpdatePage();
   }
-}
+} 
 
 function updatePaginationMenu() {
   $('.pagination-item-container').html('');
@@ -959,7 +959,7 @@ function updatePage() {
     dataToDisplay = tagToDisplay();
     tagBoxes = $('.tag-box');
     $('.pageLoad').fadeIn();;
-    $('.tag-box, .tag-pagination').animate({ opacity: 0 }, 500).promise().then(() => {
+    $('.tag-box, .tag-pagination').animate({opacity:0}, 500).promise().then(() => {
 
       let displayTags = new Promise((res, rej) => {
         boxToRecycle = Math.min(dataToDisplay.length, tagBoxes.length);
@@ -985,7 +985,7 @@ function updatePage() {
 
         //Select selected tags
         selected.forEach((id) => {
-          $('.tag-box[data-id=' + id + ']').attr('data-selected', 1);
+          $('.tag-box[data-id='+id+']').attr('data-selected', 1);
         })
 
         res();
@@ -993,22 +993,21 @@ function updatePage() {
 
       displayTags.then(() => {
         $('.pageLoad').fadeOut();
-        $('.tag-box').animate({ opacity: 1 }, 500);
-
+        $('.tag-box').animate({opacity:1}, 500);
         if (getNumberPages() > 1) {
-          $('.tag-pagination').animate({ opacity: 1 }, 500);
+          $('.tag-pagination').animate({opacity:1}, 500);
         }
         updateSearchInfo();
         resolve()
-      })
+      }) 
     });
   })
 }
 
 function tagToDisplay() {
   return dataTags.filter(isDataSearched)
-    .slice((actualPage - 1) * per_page, (actualPage) * per_page);
-}
+      .slice((actualPage-1)*per_page, (actualPage)*per_page);
+} 
 
 $('.pagination-arrow.rigth').on('click', () => {
   movePage();
@@ -1018,25 +1017,22 @@ $('.pagination-arrow.left').on('click', () => {
   movePage(false);
 })
 
-
-function tagMain() {
-  if (getNumberPages() > 1) {
-    $('.tag-pagination').show();
-    createPaginationMenu();
-    updateArrows();
-  } else {
-    $('.tag-pagination').hide();
-  }
-
-  $('.pagination-per-page a').on('click', function () {
-    per_page = parseInt($(this).html());
-    updatePaginationMenu();
-  })
+if (getNumberPages() > 1) {
+  $('.tag-pagination').show();
+  createPaginationMenu();
+  updateArrows();
+} else {
+  $('.tag-pagination').hide();
 }
 
-function updateSearchInfo() {
-  if ($('.search-input').val() != '') {
-    let number = dataTags.filter(isDataSearched).length;
+$('.pagination-per-page a').on('click',function () {
+  per_page = parseInt($(this).html());
+  updatePaginationMenu();
+})
+
+function updateSearchInfo () {
+  if ($('.search-input').val() != '') { 
+    let number = dataTags.filter(isDataSearched).length;   
     if (number > 1) {
       $('.search-info').html(str_tags_found.replace('%d', number));
     } else {
@@ -1046,5 +1042,3 @@ function updateSearchInfo() {
     $('.search-info').html('');
   }
 }
-
-tagMain();

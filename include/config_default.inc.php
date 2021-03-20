@@ -109,7 +109,7 @@ $conf['paginate_pages_around'] = 2;
 
 // show_version : shall the version of Piwigo be displayed at the
 // bottom of each page ?
-$conf['show_version'] = true;
+$conf['show_version'] = false;
 
 // meta_ref to reference multiple sets of incorporated pages or elements
 // Set it false to avoid referencing in Google, and other search engines.
@@ -222,7 +222,7 @@ $conf['available_permission_levels'] = array(0,1,2,4,8);
 //
 // This configuration parameter is set to true in BSF branch and to false
 // elsewhere.
-$conf['check_upgrade_feed'] = true;
+$conf['check_upgrade_feed'] = false;
 
 // rate_items: available rates for a picture
 $conf['rate_items'] = array(0,1,2,3,4,5);
@@ -437,7 +437,7 @@ $conf['session_gc_probability'] = 1;
 $conf['show_queries'] = false;
 
 // show_gt : display generation time at the bottom of each page
-$conf['show_gt'] = true;
+$conf['show_gt'] = false;
 
 // debug_l10n : display a warning message each time an unset language key is
 // accessed
@@ -450,7 +450,7 @@ $conf['debug_template'] = false;
 $conf['debug_mail'] = false;
 
 // die_on_sql_error: if an SQL query fails, should everything stop?
-$conf['die_on_sql_error'] = true;
+$conf['die_on_sql_error'] = false;
 
 // if true, some language strings are replaced during template compilation
 // (instead of template output). this results in better performance. however
@@ -695,6 +695,10 @@ $conf['ws_max_users_per_page'] = 1000;
 
 // Display a link to subscribe to Piwigo Announcements Newsletter
 $conf['show_newsletter_subscription'] = true;
+
+// Check for available updates on Piwigo or extensions, performed each time
+// the dashboard is displayed
+$conf['dashboard_check_for_updates'] = true;
 
 // Number Weeks displayed on activity chart on the dashboard
 $conf['dashboard_activity_nb_weeks'] = 4;

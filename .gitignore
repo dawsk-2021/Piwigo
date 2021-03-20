@@ -28,8 +28,8 @@ osmmap.php
 /themes/modus/language/
 !/themes/modus/language/de_DE
 !/themes/modus/language/en_UK
-
-
+/themes/elegant
+/themes/smartpocket
 
 # IntelliJ
 .idea
