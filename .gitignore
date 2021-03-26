@@ -22,6 +22,7 @@ osmmap.php
 !/plugins/AdminTools
 !/plugins/tag_groups
 !/plugins/ExtendedDescription
+!/plugins/FCKEditor
 
 /themes/bootstrap_darkroom/language/
 !/themes/bootstrap_darkroom/language/de_DE
