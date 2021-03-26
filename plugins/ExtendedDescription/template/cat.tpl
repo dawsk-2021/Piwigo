@@ -10,7 +10,7 @@
         <h3>
           <a href="{$URL}">{$NAME}</a>
         </h3>
-        <div class="text" style="text-align: left;">
+        <div class="text">
           {if isset($INFO_DATES) }
           <p class="dates">{$INFO_DATES}</p>
           {/if}
