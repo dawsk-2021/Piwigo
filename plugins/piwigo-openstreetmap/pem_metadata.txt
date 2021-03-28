@@ -1,0 +1,4 @@
+File automatically created from SVN or Git repository.
+
+URL: https://github.com/xbgmsharp/piwigo-openstreetmap 
+Revision: 79d1e164b5d8b38a15680e17188bdd530ce4479f (Thu Jul 26 11:14:06 2018 +0200)
