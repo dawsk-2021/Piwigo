@@ -55,11 +55,11 @@ function load_fckeditor_script()
     if ($section == 'AdditionalPages/admin/add_page.php'
       or (preg_match('#AdditionalPages/(?:admin/|)admin.php#', $section) and (@in_array($_GET['tab'], array('add_page', 'edit_page'))))
     )
-    {
+    {/*
       $areas[] = 'ap_content';
       $width = '100%';
       $height = '400px';
-      $template->set_prefilter('plugin_admin_content', 'add_remove_button');
+      $template->set_prefilter('plugin_admin_content', 'add_remove_button');*/
     }
     // PWG Stuffs
     elseif (($section == 'PWG_Stuffs/admin/add_module.php' and @$_GET['type'] == 'Personal')

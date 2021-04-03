@@ -97,7 +97,7 @@ function osm_render_category()
                 }
               }
             }
-	    else
+	    else if($page['section'] === "categories")
             {
               $osm_content = '<div id="osmmap">'. $osm_content . '</div>';
               $template->concat( 'PLUGIN_INDEX_CONTENT_END' , "\n".$osm_content);

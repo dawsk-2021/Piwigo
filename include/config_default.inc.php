@@ -297,12 +297,12 @@ $conf['mail_allow_html'] = true;
 //   format: hoststring[:port]
 //   exemple: smtp.pwg.net:21
 // smtp_user/smtp_password: user & password for smtp authentication
-$conf['smtp_host'] = '';
-$conf['smtp_user'] = '';
-$conf['smtp_password'] = '';
+$conf['smtp_host'] = 'sslout.df.eu:465';
+$conf['smtp_user'] = 'kontakt@digitalesarchiv-woerrstadt.de';
+$conf['smtp_password'] = '*';
 
 // 'ssl' or 'tls'
-$conf['smtp_secure'] = null;
+$conf['smtp_secure'] = 'ssl';
 
 // +-----------------------------------------------------------------------+
 // |                               metadata                                |
