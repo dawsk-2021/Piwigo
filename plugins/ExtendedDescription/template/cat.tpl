@@ -1,5 +1,5 @@
 <ul class="thumbnailCategories">
-  <li style="width: 99.5%;">
+  {* <li style="width: 99.5%;"> *}
     <div class="thumbnailCategory">
       <div class="illustration">
       <a href="{$URL}">
@@ -21,5 +21,5 @@
         </div>
       </div>
     </div>
-  </li>
+  {* </li> *}
 </ul>

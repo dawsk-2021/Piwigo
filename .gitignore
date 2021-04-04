@@ -24,6 +24,7 @@ osmmap.php
 !/plugins/ExtendedDescription
 !/plugins/FCKEditor
 !/plugins/piwigo-openstreetmap
+!/plugins/rv_autocomplete
 
 /themes/bootstrap_darkroom/language/
 !/themes/bootstrap_darkroom/language/de_DE
