@@ -14,6 +14,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+
+
 body {
   overflow-x: hidden;
 }
@@ -136,6 +138,11 @@ a {
   color: inherit;
 }
 
+.form-control:focus {
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
 .navbar-expand-lg.fixed-top {
   flex-flow: row wrap;
 }
@@ -208,6 +215,7 @@ a {
   color: white;
   font-weight: 500;
   box-shadow: 10px 10px 15px rgb(155, 154, 154) inset;
+  border-radius: 8px;
 }
 
 .navbar.navbar-contextual .navbar-brand a,
@@ -405,6 +413,17 @@ a {
   #navbar-menubar > #quicksearch .fa-search {
     display: none;
   }
+}
+
+.ui-widget-content {
+	border: 0px solid #000000 !important;
+  background-color: #525b64d8 !important;
+}
+
+ul.ui-autocomplete {
+  position: absolute; 
+  cursor: default;
+  z-index:2000 !important;
 }
 
 @media (min-width: 992px) {
