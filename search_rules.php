@@ -140,7 +140,7 @@ SELECT id, uppercats, global_rank
   }
 }
 
-foreach (array('date_available', 'date_creation') as $datefield)
+foreach (array('date_available', 'date_creation', 'lastmodified') as $datefield)
 {
   if ('date_available' == $datefield)
   {
@@ -152,6 +152,15 @@ foreach (array('date_available', 'date_creation') as $datefield)
       );
   }
   elseif ('date_creation' == $datefield)
+  {
+    $lang_items = array(
+      'date'   => l10n('created on %s'),
+      'period' => l10n('created between %s (%s) and %s (%s)'),
+      'after'  => l10n('created after %s (%s)'),
+      'before' => l10n('created before %s (%s)'),
+      );
+  }
+  elseif ('lastmodified' == $datefield)
   {
     $lang_items = array(
       'date'   => l10n('created on %s'),

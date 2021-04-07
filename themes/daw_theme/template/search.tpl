@@ -127,8 +127,11 @@
                     <label class="form-check-label mr-3">
                         <input class="form-check-input" type="radio" name="date_type" value="date_creation" checked="checked"> {'Creation date'|@translate}
                     </label>
-                    <label class="form-check-label">
+                    <label class="form-check-label mr-3">
                         <input class="form-check-input" type="radio" name="date_type" value="date_available"> {'Post date'|@translate}
+                    </label>
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="date_type" value="lastmodified"> {'Last update'|@translate}
                     </label>
                   </div>
                 </div>

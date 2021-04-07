@@ -101,7 +101,7 @@ if (isset($_POST['submit']))
   }
 
   // dates
-  check_input_parameter('date_type', $_POST, false, '/^date_(creation|available)$/');
+  check_input_parameter('date_type', $_POST, false, '/^date_creation|date_available|lastmodified$/');
   
   $type_date = $_POST['date_type'];
 
