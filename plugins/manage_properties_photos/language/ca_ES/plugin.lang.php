@@ -55,5 +55,6 @@ $lang['Add field for automatic deletion\'s photos on a given date'] = 'Afegeix u
 $lang['IPTC'] = 'IPTC';
 $lang['IPTC field can\'t be empty'] = 'El camp IPTC no pot estar buit';
 $lang['exif field can\'t be empty'] = 'El camp EXIF no pot estar buit';
-$lang['Hide Image Id'] = 'Amaga l\'identificador de la imatge';
 $lang['Show Image Id'] = 'Mostra l\'identificador de la imatge';
+$lang['Delete photo'] = 'Suprimeix la foto';
+$lang['Hide Image Id'] = 'Amaga l\'identificador de la imatge';

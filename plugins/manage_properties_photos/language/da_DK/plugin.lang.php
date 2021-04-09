@@ -57,3 +57,4 @@ $lang['Max field for select or radio option'] = 'Maksimumfelter til select eller
 $lang['Remove Field for automatic deletion\'s photos on a given date and all date save'] = 'Fjern felt til automatisk sletning af fotografier og alle planlagte datoer';
 $lang['Hide Image Id'] = 'Skjul billedid';
 $lang['Show Image Id'] = 'Vis billedid';
+$lang['Delete photo'] = 'Slet fotografi';

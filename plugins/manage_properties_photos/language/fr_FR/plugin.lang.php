@@ -55,3 +55,4 @@ $lang['exif field can\'t be empty'] = 'le champ exif ne peux pas être vide';
 $lang['IPTC field can\'t be empty'] = 'le champ IPTC ne peux pas être vide';
 $lang['Show Image Id'] = 'Montrer l\'ID de l\'Image';
 $lang['Hide Image Id'] = 'Cacher l\'ID de l\'Image';
+$lang['Delete photo'] = 'supprimer les photos';

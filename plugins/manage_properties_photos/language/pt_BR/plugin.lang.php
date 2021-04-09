@@ -55,5 +55,6 @@ $lang['select'] = 'selecionar';
 $lang['IPTC field can\'t be empty'] = 'O campo IPTC não pode estar em branco';
 $lang['exif field can\'t be empty'] = 'O campo exif não pose estar em branco';
 $lang['reference photo type doesn\'t use metadata please update'] = 'foto tipo referência não usa metadados, favor atualizar';
-$lang['Hide Image Id'] = 'Ocultar ID da imagem';
 $lang['Show Image Id'] = 'Mostrar ID da imagem';
+$lang['Delete photo'] = 'Excluir foto';
+$lang['Hide Image Id'] = 'Ocultar ID da imagem';

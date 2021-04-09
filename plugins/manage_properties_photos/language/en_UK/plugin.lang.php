@@ -57,3 +57,4 @@ $lang['exif field can\'t be empty'] = 'exif field can\'t be empty';
 $lang['IPTC field can\'t be empty'] = 'IPTC field can\'t be empty';
 $lang['Show Image Id'] = 'Show Image Id';
 $lang['Hide Image Id'] = 'Hide Image Id';
+$lang['Delete photo'] = 'Delete photo';

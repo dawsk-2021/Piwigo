@@ -41,5 +41,6 @@ $lang['Text'] = 'Texte';
 $lang['The reference photo doesn\'t have IPTC'] = 'La photo de référence ne possède pas d\'IPTC';
 $lang['reference photo id doesn\'t exist please update'] = 'ID choisie comme photo de réference n\'existe pas merci de mettre à jour';
 $lang['reference photo type doesn\'t use metadata please update'] = 'Le type de la photo de réference n\'utilise pas les exifs, merci de mettre à jour';
-$lang['Hide Image Id'] = 'Cacher l\'ID de l\'image';
 $lang['Show Image Id'] = 'Montrer l\'ID de l\'image';
+$lang['Delete photo'] = 'supprimer les photos';
+$lang['Hide Image Id'] = 'Cacher l\'ID de l\'image';

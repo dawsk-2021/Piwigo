@@ -56,4 +56,5 @@ $lang['exif field can\'t be empty'] = 'IPTC-feltet kan ikke være tomt';
 $lang['reference photo id doesn\'t exist please update'] = 'referansefoto-ID eksisterer ikke, vennligst oppdater';
 $lang['reference photo type doesn\'t use metadata please update'] = 'referansefototype bruker ikke metadata, vennligst oppdater';
 $lang['Show Image Id'] = 'Vis bilde-Id';
+$lang['Delete photo'] = 'Slett bilde';
 $lang['Hide Image Id'] = 'Skjul bilde-Id';

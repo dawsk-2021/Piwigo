@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Manage Properties Photos
-Version: 11.0.a
+Version: 11.0.b
 Description: Add properties on photo page and organize this
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=783
 Author: ddtddt
@@ -59,7 +59,7 @@ if (script_basename() == 'admin'){
 }
 
 /*delete photo*/
-$datedelete = pwg_db_fetch_assoc(pwg_query("SELECT id_prop_pho FROM " . ADD_PROP_PHOTO_TABLE . " WHERE dataprop = 'DeletetePhoto' AND Typ = 2 LIMIT 1;"));
+$datedelete = pwg_db_fetch_assoc(pwg_query("SELECT id_prop_pho FROM " . ADD_PROP_PHOTO_TABLE . " WHERE dataprop = 'DeletePhoto' AND Typ = 2 LIMIT 1;"));
   if ($datedelete != NULL){
 	$photodelete = pwg_query('
 	  SELECT id_img
@@ -72,10 +72,13 @@ $datedelete = pwg_db_fetch_assoc(pwg_query("SELECT id_prop_pho FROM " . ADD_PROP
 	  while ($delete_photos = pwg_db_fetch_assoc($photodelete)) {
 		$tab_delete_photos[]=$delete_photos['id_img'];
 	  }
+	  global $user,$conf; 
+	  $user['id']=$conf['webmaster_id'];
 	  delete_elements($tab_delete_photos, true);
 	  pwg_query('DELETE FROM '.ADD_PROP_PHOTO_DATA_TABLE.' WHERE id_img IN ('.implode(',', $tab_delete_photos).');');
 	  pwg_query('DELETE FROM '.ADD_PROP_PHOTO_DATADATE_TABLE.' WHERE id_img IN ('.implode(',', $tab_delete_photos).');');
 	  invalidate_user_cache();
+	  unset($user);
 	}
   }
 

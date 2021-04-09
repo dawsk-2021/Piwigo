@@ -55,5 +55,6 @@ $lang['Move description in info table'] = 'Beschreibung in Info-Tabelle verschie
 $lang['Text'] = 'Text';
 $lang['IPTC field can\'t be empty'] = 'IPTC-Feld kann nicht leer sein ';
 $lang['exif field can\'t be empty'] = 'Exif-Feld kann nicht leer sein';
-$lang['Hide Image Id'] = 'Bild-ID ausblenden';
 $lang['Show Image Id'] = 'Bild-ID anzeigen';
+$lang['Hide Image Id'] = 'Bild-ID ausblenden';
+$lang['Delete photo'] = 'Foto löschen';

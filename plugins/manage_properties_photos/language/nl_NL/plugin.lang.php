@@ -55,5 +55,6 @@ $lang['IPTC field can\'t be empty'] = 'IPTC-veld kan niet leeg zijn';
 $lang['exif field can\'t be empty'] = 'exif-veld kan niet leeg zijn';
 $lang['reference photo id doesn\'t exist please update'] = 'referentiefoto-ID bestaat niet, update a.u.b.';
 $lang['reference photo type doesn\'t use metadata please update'] = 'referentiefototype gebruikt geen metadata, update a.u.b.';
-$lang['Hide Image Id'] = 'Verberg foto-ID';
 $lang['Show Image Id'] = 'Toon foto-ID';
+$lang['Delete photo'] = 'Verwijder foto';
+$lang['Hide Image Id'] = 'Verberg foto-ID';

@@ -55,5 +55,6 @@ $lang['reference photo type doesn\'t use metadata please update'] = 'El tipo de 
 $lang['select'] = 'Seleccionar';
 $lang['IPTC field can\'t be empty'] = 'El campo IPTC no puede estar vacío';
 $lang['exif field can\'t be empty'] = 'El campo EXIF no puede estar vacío';
-$lang['Hide Image Id'] = 'Ocultar el identificador de la imagen';
 $lang['Show Image Id'] = 'Mostrar el identificador de la imagen';
+$lang['Delete photo'] = 'Suprimir la foto';
+$lang['Hide Image Id'] = 'Ocultar el identificador de la imagen';
