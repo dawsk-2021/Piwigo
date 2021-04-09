@@ -46,8 +46,8 @@ function adjustPluginAdminTools(adminToolsInstalled) {
         }
 
         var elements = atoHeader.getElementsByClassName("icon-wrench");
-        console.log(elements[0].href)  
-        elements[0].href = elements[0].href.replace(/maintenance/i,"comments");
+        console.log(elements[0].href)
+        elements[0].href = elements[0].href.replace(/maintenance/i, "comments");
 
         var elements = atoHeader.getElementsByClassName("icon-ato-cancel");
         for (idx = 0; idx < elements.length; idx++) {
@@ -72,7 +72,6 @@ function adjustAdminPages() {
         for (i = 0; i < inputFields.length; i++) {
             if (inputFields[i].name === "author" && inputFields[i].value.includes("Bieser FR")) {
                 inputFields[i].readOnly = true;
-                inputFields[i].disabled = true;
             }
         }
     }
@@ -83,7 +82,16 @@ function adjustAdminPages() {
         for (i = 0; i < inputFields.length; i++) {
             if (inputFields[i].name.includes("author-") && inputFields[i].value.includes("Bieser FR")) {
                 inputFields[i].readOnly = true;
-                inputFields[i].disabled = true;
+            }
+        }
+    }
+
+    var batchContent = document.getElementById("permitAction");
+    if (batchContent != null) {
+        var inputFields = batchContent.getElementsByTagName("INPUT");
+        for (i = 0; i < inputFields.length; i++) {
+            if (inputFields[i].name.includes("remove_author")) {
+                inputFields[i].parentElement.hidden = true;
             }
         }
     }
@@ -194,11 +202,11 @@ function adjustCommentPage() {
     if (pendingComments != null) {
 
         var commentFilter = pendingComments.parentElement.getElementsByClassName("commentFilter");
-        console.log(commentFilter[0]); 
-        
+        console.log(commentFilter[0]);
+
         commentFilter[0].remove();
 
         var valButton = pendingComments.querySelector("[name='validate']");
         valButton.remove();
     }
-} 
+}
