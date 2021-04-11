@@ -8,7 +8,6 @@ function adjustPluginAdminTools(adminToolsInstalled) {
     if (authorContent != null) {
         if (authorContent.value.includes("Bieser FR")) {
             authorContent.readOnly = true;
-            authorContent.disabled = true;
         }
     }
 
