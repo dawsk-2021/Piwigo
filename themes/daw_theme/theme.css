@@ -15,7 +15,6 @@ html, body {
 }
 
 
-
 body {
   overflow-x: hidden;
 }
@@ -616,6 +615,18 @@ ul.ui-autocomplete {
   min-height: 20%;
 }
 
+#content-description {
+  background-color: white;
+}
+
+@media (min-width: 1120px) {
+  #content-description {
+    max-width:1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (min-width: 1024px) {
   .container-fluid #content, .container-fluid #content-description {
     padding: 0 1rem;
@@ -654,6 +665,7 @@ i.video-indicator {
 
 #theCategoryPage {
   padding-left: 0px !important;
+  background-color: #efeff0e0;
 }
 
 #carousel-container {
@@ -803,6 +815,10 @@ i.video-indicator {
 
 #slideshow #navigationButtons {
   margin-top: 20px;
+}
+
+#thePicturePage {
+  background-color: #efeff0e0;
 }
 
 #thePicturePage .embed-responsive-16by9 video[poster] {
@@ -1340,6 +1356,63 @@ ul.thumbnailCategories {
 
 #theAdditionalPage .navbar-contextual .nav-breadcrumb > a {
   padding-right: 0.5rem;
+}
+
+
+.table {
+  display: table;
+}
+
+.table img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 900px) {
+  .table-row {
+      display: block;
+      padding: 10px;
+  }
+
+  .table-cell {
+      display: block;
+      padding-bottom: 5px;
+  }
+
+  .table img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .table-row {
+      display: table-row;
+  }
+
+  .table-cell {
+      display: table-cell;
+      padding: 10px;
+      vertical-align: top;
+  }
+
+  .table img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.img-root-text {
+  font-style: italic;
+  font-size: 0.6em;
+  padding-bottom: 15px;
+}
+
+#wrapper {
+  max-width: unset;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=theme.css.map */

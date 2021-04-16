@@ -2396,6 +2396,7 @@ a#showPermissions:hover {text-decoration: none;}
 /* Selectize */
 .selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
     padding: 0px 5px !important;
+    min-width: 70px;
 }
 
 /* Tag Manager */
@@ -3026,7 +3027,9 @@ a#showPermissions:hover {text-decoration: none;}
   padding:1em;
 }
 #addAlbumForm .selectize-dropdown-content {
-  max-height:170px;
+  max-height:170px;  
+  max-width: 500px;
+  min-width: 500px;
 }
 #addAlbumForm input[name="category_name"] {
   width: 565px; padding: 8px 8px; 
@@ -4608,7 +4611,14 @@ li.plupload_delete a:hover {background: url("images/cancelhover.svg")!important;
 #permitAction select {padding: 12px 10px; width: 280px; -webkit-appearance: none;}
 .permitActionItem select { margin-bottom: 25px;}
 #applyAction {padding: 10px 18px; margin-left: 0;}
-.permitActionItem {margin-left: 30px; width: 225px;}
+
+@media (min-width: 1280px) {
+  .permitActionItem {margin-left: 30px; width: 800px;}
+}
+@media (max-width: 1279px min-width 930px) {
+  .permitActionItem {margin-left: 30px; width: 400px;}
+}
+
 .permitActionItem .selectize-control.single.plugin-remove_button {width: auto !important;}
 .permitActionItem .selectize-input.items.full.has-options.has-items {width: 500px !important; line-height: 23px;}
 #action_associate {display: flex;}
@@ -4646,7 +4656,7 @@ li.plupload_delete a:hover {background: url("images/cancelhover.svg")!important;
 #action_title .large, #action_author .large {padding: 12px 10px; border: 1px solid #787777a6;margin-bottom: 8px;}
 #action_add_tags .selectize-input.items.not-full.has-options, 
 #action_add_tags .selectize-input.items.not-full.has-options.focus.input-active.dropdown-active, .selectize-input.items.not-full, .selectize-input.items.full {
-	padding: 12px 10px; box-shadow: none; border-radius: 0px; border: 1px solid #787777a6;
+	padding: 12px 10px; box-shadow: none; border-radius: 0px; border: 1px solid #787777a6; min-width: 350px;
 }
 
 .pageNumberSelected {background-color: #ffaf58 !important; border: none !important; border-radius: 0 !important;}
@@ -4885,3 +4895,7 @@ li.plupload_delete a:hover {background: url("images/cancelhover.svg")!important;
 }
 
 .doubleSelect p {display:flex; justify-content: center;}
+
+.map1 {
+  width: 600px !important;
+}
