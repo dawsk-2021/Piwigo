@@ -1,4 +1,4 @@
 File automatically created from SVN or Git repository.
 
 URL: https://github.com/tkuther/piwigo-bootstrap-darkroom 
-Revision: fb47b50dac6823128279fa0040d5ece7b22760a3 (Wed Feb 24 15:33:55 2021 +0100)
+Revision: c82a60d5d40bd39038093ce18fb7c32154939054 (Tue Apr 27 15:39:15 2021 +0200)
