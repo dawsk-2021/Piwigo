@@ -297,12 +297,12 @@ $conf['mail_allow_html'] = true;
 //   format: hoststring[:port]
 //   exemple: smtp.pwg.net:21
 // smtp_user/smtp_password: user & password for smtp authentication
-$conf['smtp_host'] = 'sslout.df.eu:465';
-$conf['smtp_user'] = 'kontakt@digitalesarchiv-woerrstadt.de';
-$conf['smtp_password'] = '*';
+$conf['smtp_host'] = '';
+$conf['smtp_user'] = '';
+$conf['smtp_password'] = '';
 
 // 'ssl' or 'tls'
-$conf['smtp_secure'] = 'ssl';
+$conf['smtp_secure'] = null;
 
 // +-----------------------------------------------------------------------+
 // |                               metadata                                |
@@ -644,6 +644,19 @@ $conf['tags_default_display_mode'] = 'cloud';
 $conf['tag_letters_column_number'] = 4;
 
 // +-----------------------------------------------------------------------+
+// | Related albums                                                        |
+// +-----------------------------------------------------------------------+
+
+// beyond this limit, do not try to find related albums. If there are too
+// many items, the SQL query will be slow and the results irrelevant,
+// because showing too many related albums.
+$conf['related_albums_maximum_items_to_compute'] = 1000;
+
+// once found the related albums, how many to show in the menubar? We take
+// the heaviest (with more relations).
+$conf['related_albums_display_limit'] = 20;
+
+// +-----------------------------------------------------------------------+
 // | Notification by mail                                                  |
 // +-----------------------------------------------------------------------+
 
@@ -702,6 +715,10 @@ $conf['dashboard_check_for_updates'] = true;
 
 // Number Weeks displayed on activity chart on the dashboard
 $conf['dashboard_activity_nb_weeks'] = 4;
+
+// On album mover page, number of seconds before auto openning album when
+// dragging an album. In milliseconds. 3 seconds by default.
+$conf['album_move_delay_before_auto_opening'] = 3*1000;
 
 // +-----------------------------------------------------------------------+
 // | Filter                                                                |

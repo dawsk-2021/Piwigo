@@ -1,24 +1,19 @@
-function setDisplayCompact() {
+function setDisplayTile() {
     $(".pluginDesc").show();
     $(".pluginDescCompact").hide();
     $(".pluginActions").show();
     $(".pluginActionsSmallIcons").hide();
 
-    $(".PluginOptionsIcons a").removeClass("biggerIcon");
-    $(".pluginActionsSmallIcons a").removeClass("biggerIcon");
     $(".pluginMiniBoxNameCell").removeClass("pluginMiniBoxNameCellCompact");
 
     normalTitle();
 }
 
-function setDisplayTile() {
+function setDisplayCompact() {
     $(".pluginDesc").hide();
     $(".pluginDescCompact").show();
     $(".pluginActions").hide();
     $(".pluginActionsSmallIcons").show();
-
-    $(".PluginOptionsIcons a").addClass("biggerIcon");
-    $(".pluginActionsSmallIcons a").addClass("biggerIcon");
 
     $(".pluginMiniBoxNameCell").addClass("pluginMiniBoxNameCellCompact");
 

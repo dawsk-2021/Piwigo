@@ -342,7 +342,7 @@ var sliders = {
 
 {combine_script id='jquery.confirm' load='footer' require='jquery' path='themes/default/js/plugins/jquery-confirm.min.js'}
 {combine_css path="themes/default/js/plugins/jquery-confirm.min.css"}
-{combine_css path="admin/themes/default/fontello/css/animation.css"}
+{combine_css path="admin/themes/default/fontello/css/animation.css" order=10} {* order 10 is required, see issue 1080 *}
 
 <div id="batchManagerGlobal">
 
@@ -684,7 +684,7 @@ UL.thumbnails SPAN.wrap2 {ldelim}
 
       <!-- associate -->{* also used for "move" action *}
       <div id="action_associate" class="bulkAction">
-        <select data-selectize="categories" data-default="first" name="associate" style="width:600px"></select>
+        <select data-selectize="categories" data-default="" name="associate" style="width:600px" placeholder="{'Select an album... or type it!'|@translate}"></select>
         <a href="#" data-add-album="associate" title="{'create a new album'|@translate}" class="icon-plus"></a>
       </div>
 
@@ -801,3 +801,10 @@ UL.thumbnails SPAN.wrap2 {ldelim}
   </form>
 
 </div> <!-- #batchManagerGlobal -->
+
+<style>
+#action_associate .selectize-input {
+  min-width: 500px;
+  height: 44px;
+}
+</style>

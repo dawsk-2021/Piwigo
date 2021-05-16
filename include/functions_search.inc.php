@@ -124,7 +124,7 @@ function get_sql_search_clause($search)
         );
   }
 
-  foreach (array('date_available', 'date_creation', 'lastmodified') as $datefield)
+  foreach (array('date_available', 'date_creation') as $datefield)
   {
     if (isset($search['fields'][$datefield]))
     {

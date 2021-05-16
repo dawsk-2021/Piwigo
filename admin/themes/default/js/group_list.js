@@ -43,8 +43,12 @@ $("#cancel").click(function () {
  -------*/
 var isToggle = true;
 $(".addGroupBlock").on("click", function() {
-  if (isToggle) deployAddGroupForm()
-  else hideAddGroupForm();
+  if (isToggle) {
+    deployAddGroupForm();
+  } 
+  else {
+    hideAddGroupForm();
+  } 
 })
 
 var deployAddGroupForm = function () {
@@ -53,6 +57,7 @@ var deployAddGroupForm = function () {
     padding: "0px"
   }, 400, complete=function(){
     $("#addGroupForm form").fadeIn();
+    $("#addGroupNameInput").focus();  
   });
   isToggle = false;
 }
@@ -94,7 +99,7 @@ jQuery(document).ready(function () {
           setupGroupBox(groupBox);
           updateBadge();
         } else {
-          $("#addGroupForm .groupError").html(str_name_taken);
+          $("#addGroupForm .groupError").html(str_name_not_empty);
           $("#addGroupForm .groupError").fadeIn();
           $("#addGroupForm .groupError").delay(DELAY_FEEDBACK).fadeOut();
         }
@@ -437,6 +442,11 @@ var duplicateAction = function(id) {
         groupbox.insertAfter($("#group-"+id));
         setupGroupBox(groupbox);
         updateBadge();
+
+        /* data.result.groups[0].is_default is a string */
+        if(data.result.groups[0].is_default == "true") {
+          setupDefaultActions(data.result.groups[0].id, true);
+        }
       }
     },
     error: function (err) {

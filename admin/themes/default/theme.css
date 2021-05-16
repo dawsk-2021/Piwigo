@@ -195,7 +195,6 @@ TABLE.languages TR TD { padding: 7px 20px; }
   text-align: center;
   font-weight: 600;
   font-size: 14px;
-  margin-top: 10px;
   display: block;
 }
 
@@ -204,13 +203,10 @@ TABLE.languages TR TD { padding: 7px 20px; }
 }
 
 .albumActions {
-  position: absolute;
   bottom: 5px;
   flex-direction: column;
   width: 90%;
   overflow: hidden;
-  margin-left: 20px;
-  margin-bottom: 10px;
   display: none;
 }
 
@@ -236,7 +232,7 @@ TABLE.languages TR TD { padding: 7px 20px; }
 .addAlbum {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -2396,7 +2392,6 @@ a#showPermissions:hover {text-decoration: none;}
 /* Selectize */
 .selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
     padding: 0px 5px !important;
-    min-width: 70px;
 }
 
 /* Tag Manager */
@@ -3027,9 +3022,7 @@ a#showPermissions:hover {text-decoration: none;}
   padding:1em;
 }
 #addAlbumForm .selectize-dropdown-content {
-  max-height:170px;  
-  max-width: 500px;
-  min-width: 500px;
+  max-height:170px;
 }
 #addAlbumForm input[name="category_name"] {
   width: 565px; padding: 8px 8px; 
@@ -3142,7 +3135,7 @@ FORM#categoryOrdering p.albumActions .userSeparator {margin:0 5px;}
 .move-cat-container .move-cat-title {
   font-size: 16px;
   margin: 10px;
-  max-width: 200px;
+  max-width: 600px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -3226,6 +3219,17 @@ FORM#categoryOrdering p.albumActions .userSeparator {margin:0 5px;}
   transform: translate(-50%, -48%);
   text-align: left;
   padding: 30px;
+  min-width: 360px;
+}
+
+.cat-move-order-popin .popin-title .icon-sort-name-up::before {
+  display:inline !important;
+}
+.cat-move-order-popin .popin-title .icon-sort-name-up, .cat-move-order-popin .popin-title-text {
+  display:inline-block;
+}
+.cat-move-order-popin .popin-title-text::first-letter {
+  text-transform: capitalize;
 }
 
 .cat-move-order-popin .album-name {
@@ -3273,7 +3277,7 @@ FORM#categoryOrdering p.albumActions .userSeparator {margin:0 5px;}
 
 .cat-move-order-popin .close-popin:hover { color: #ffa646;}
 
-.popin-title {font-weight: bold; font-size: 15px; margin-bottom: 15px; color: #3C3C3C;}
+.popin-title {font-weight: bold; font-size: 15px; margin-bottom: 15px; color: #3C3C3C; white-space: nowrap;}
 
 .popin-title span {
   padding: 7px;
@@ -4656,7 +4660,7 @@ li.plupload_delete a:hover {background: url("images/cancelhover.svg")!important;
 #action_title .large, #action_author .large {padding: 12px 10px; border: 1px solid #787777a6;margin-bottom: 8px;}
 #action_add_tags .selectize-input.items.not-full.has-options, 
 #action_add_tags .selectize-input.items.not-full.has-options.focus.input-active.dropdown-active, .selectize-input.items.not-full, .selectize-input.items.full {
-	padding: 12px 10px; box-shadow: none; border-radius: 0px; border: 1px solid #787777a6; min-width: 350px;
+	padding: 12px 10px; box-shadow: none; border-radius: 0px; border: 1px solid #787777a6;
 }
 
 .pageNumberSelected {background-color: #ffaf58 !important; border: none !important; border-radius: 0 !important;}
@@ -4825,6 +4829,13 @@ li.plupload_delete a:hover {background: url("images/cancelhover.svg")!important;
   margin: 10px;
   white-space: nowrap;
   font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75%;
+  direction: rtl;
+  text-align: left;
 }
 
 .search-album-action-cont {
@@ -4896,6 +4907,20 @@ li.plupload_delete a:hover {background: url("images/cancelhover.svg")!important;
 
 .doubleSelect p {display:flex; justify-content: center;}
 
-.map1 {
-  width: 600px !important;
+/* View selectors css (colors)*/
+
+.AlbumViewSelector, .UserViewSelector {
+  background: #fafafa !important;
 }
+
+.AlbumViewSelector input:checked + label,
+.UserViewSelector input:checked + label{
+  background: transparent;
+  color: white;
+}
+
+.AlbumViewSelector input:checked + label span,
+.UserViewSelector input:checked + label span{
+  background: orange;
+}
+

@@ -6,6 +6,7 @@ var str_members_default = "{'members'|@translate}"
 var str_group_created = "{'Group added'|@translate}"
 var str_renaming_done = "{'Group renamed'|@translate}"
 var str_name_taken = "{'Name is already taken'|@translate}"
+var str_name_not_empty = "{'Name field must not be empty'|@translate}"
 var str_group_deleted = '{'Group "%s" succesfully deleted'|@translate}'
 var str_groups_deleted = '{'Groups \{%s\} succesfully deleted'|@translate}'
 var str_set_default = "{'Set as group for new users'|@translate}"
@@ -57,7 +58,7 @@ usersCache.selectize(jQuery('select.UserSearch'));
 
 {combine_script id='jquery.confirm' load='footer' require='jquery' path='themes/default/js/plugins/jquery-confirm.min.js'}
 {combine_css path="themes/default/js/plugins/jquery-confirm.min.css"}
-{combine_css path="admin/themes/default/fontello/css/animation.css"}
+{combine_css path="admin/themes/default/fontello/css/animation.css" order=10} {* order 10 is required, see issue 1080 *}
 
 {* Define template function for the content of Groups*}
 {function name=groupContent}
