@@ -1,0 +1,4 @@
+File automatically created from SVN or Git repository.
+
+URL: https://github.com/Piwigo/Piwigo/tags/11.5.0/language/en_UK 
+Revision: 14800
