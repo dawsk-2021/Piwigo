@@ -1379,6 +1379,18 @@ ul.thumbnailCategories {
       padding-bottom: 5px;
   }
 
+  .table-cell-40 {
+    width: unset;
+  }
+
+  .table-cell-50 {
+    width: unset;
+  }
+
+  .table-cell-60 {
+    width: unset;
+  }
+
   .table img {
     max-width: 100%;
     height: auto;
@@ -1394,6 +1406,18 @@ ul.thumbnailCategories {
       display: table-cell;
       padding: 10px;
       vertical-align: top;
+  }
+
+  .table-cell-40 {
+    width: 40%;
+  }
+
+  .table-cell-50 {
+    width: 50%;
+  }
+
+  .table-cell-60 {
+    width: 60%;
   }
 
   .table img {
