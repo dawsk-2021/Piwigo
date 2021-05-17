@@ -1439,4 +1439,38 @@ ul.thumbnailCategories {
   margin-right: auto;
 }
 
+.wappen-field {
+  flex-wrap : wrap;
+  margin: auto;
+  justify-content : center  
+}
+
+@media only screen and (min-width: 901px) {
+  .wappen-field {
+    width: 80%;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 573px) {
+  .wappen-field {
+    width: 100%;
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 572px) {
+  .wappen-field {
+    display: none;
+  }
+}
+
+.wappen-field-cell{
+  width: 20%;
+  padding: 10px;
+  vertical-align: top;
+  text-align: center;
+}
+
+
 /*# sourceMappingURL=theme.css.map */
