@@ -596,6 +596,14 @@ ul.ui-autocomplete {
   margin-bottom: 20px;
 }
 
+.card-title .ellipsis {
+  white-space: inherit  !important;
+}
+
+.card-title.ellipsis {
+  white-space: inherit;
+}
+
 .content-list .col-outer .card {
   height: 150px;
 }
@@ -629,7 +637,7 @@ ul.ui-autocomplete {
 
 @media (min-width: 1024px) {
   .container-fluid #content, .container-fluid #content-description {
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
   }
 }
 
@@ -1470,6 +1478,20 @@ ul.thumbnailCategories {
   padding: 10px;
   vertical-align: top;
   text-align: center;
+}
+
+.imageDescLeft {
+  text-align: left;
+  max-width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.imageDescCenter {
+  text-align: center;
+  max-width: 70%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
