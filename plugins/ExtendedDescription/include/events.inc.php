@@ -28,7 +28,7 @@ function get_user_language_desc($desc, $user_lang=null)
 
   if (preg_match('#\[lang=('.$user_lang.'|'.$small_user_lang.')\]#i', $desc))
   {
-    // la balise avec la langue de l'utilisateur a été trouvée
+    // la balise avec la langue de l'utilisateur a ï¿½tï¿½ trouvï¿½e
     $patterns[] = '#(^|\[/lang\])(.*?)(\[lang=(' . $user_lang . '|' . $small_user_lang . '|all)\]|$)#is';
     $replacements[] = '';
     $patterns[] = '#\[lang=(' . $user_lang . '|' . $small_user_lang . '|all)\](.*?)\[/lang\]#is';
@@ -36,7 +36,7 @@ function get_user_language_desc($desc, $user_lang=null)
   }
   else
   {
-    // la balise avec la langue de l'utilisateur n'a pas été trouvée
+    // la balise avec la langue de l'utilisateur n'a pas ï¿½tï¿½ trouvï¿½e
     // On prend tout ce qui est hors balise
     $patterns[] = '#\[lang=all\](.*?)\[/lang\]#is';
     $replacements[] = '\\1';
@@ -176,6 +176,13 @@ function get_extended_desc($desc, $param='')
   // <!--complete-->, <!--more--> et <!--up-down-->
   switch ($param)
   {
+    case 'main_page_element_description' :
+      $patterns[] = '#^(.*?)(' . preg_quote($conf['ExtendedDescription']['complete']) . '|' . preg_quote($conf['ExtendedDescription']['more']) . '|' . preg_quote($conf['ExtendedDescription']['up-down']) . ').*$#is';
+      $replacements[] = '$1';
+      $desc = preg_replace($patterns, $replacements, $desc);
+      $desc = preg_replace($generic_pattern, '', $desc);
+      break;
+      
     case 'subcatify_category_description' :
       $patterns[] = '#^(.*?)(' . preg_quote($conf['ExtendedDescription']['complete']) . '|' . preg_quote($conf['ExtendedDescription']['more']) . '|' . preg_quote($conf['ExtendedDescription']['up-down']) . ').*$#is';
       $replacements[] = '$1';
